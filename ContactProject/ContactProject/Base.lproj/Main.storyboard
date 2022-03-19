@@ -86,12 +86,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cem-9j-hmi">
-                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <rect key="frame" x="20" y="64" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LSI-aq-gtc">
-                                <rect key="frame" x="20" y="162" width="374" height="34"/>
+                                <rect key="frame" x="20" y="118" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -115,7 +115,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Esi-ON-g2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2750.7246376811595" y="116.51785714285714"/>
+            <point key="canvasLocation" x="1888" y="117"/>
+        </scene>
+        <!--Edit Contact View Controller-->
+        <scene sceneID="Yjm-nc-twi">
+            <objects>
+                <viewController storyboardIdentifier="editContactVC" id="tsn-zB-ZJ1" customClass="EditContactViewController" customModule="ContactProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pnb-d4-jlh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AqD-4o-W6e">
+                                <rect key="frame" x="20" y="64" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d76-2d-Luw">
+                                <rect key="frame" x="20" y="118" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pT8-K6-ZFf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pT8-K6-ZFf" firstAttribute="trailing" secondItem="AqD-4o-W6e" secondAttribute="trailing" constant="20" id="3CC-hg-DcN"/>
+                            <constraint firstItem="d76-2d-Luw" firstAttribute="leading" secondItem="pT8-K6-ZFf" secondAttribute="leading" constant="20" id="KaG-8q-qha"/>
+                            <constraint firstItem="d76-2d-Luw" firstAttribute="top" secondItem="AqD-4o-W6e" secondAttribute="bottom" constant="20" id="QpP-MJ-zq8"/>
+                            <constraint firstItem="AqD-4o-W6e" firstAttribute="leading" secondItem="pT8-K6-ZFf" secondAttribute="leading" constant="20" id="a6W-J9-NUt"/>
+                            <constraint firstItem="AqD-4o-W6e" firstAttribute="top" secondItem="pT8-K6-ZFf" secondAttribute="top" constant="20" id="qoE-d7-t6k"/>
+                            <constraint firstItem="pT8-K6-ZFf" firstAttribute="trailing" secondItem="d76-2d-Luw" secondAttribute="trailing" constant="20" id="rUR-tK-YAG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editNameLabel" destination="AqD-4o-W6e" id="HLi-4J-M3n"/>
+                        <outlet property="editPhoneNumberLabel" destination="d76-2d-Luw" id="QBC-Cq-0sL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GFg-rh-Oaz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2678" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jwO-fW-iRI">
@@ -134,24 +173,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gsx-tH-wJH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="nND-hK-vtB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jSr-2i-p6c" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JJR-jo-o8J">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qVN-p2-QzT" kind="relationship" relationship="rootViewController" id="O9T-1k-kWS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dND-p9-5mK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1840.5797101449277" y="116.51785714285714"/>
         </scene>
     </scenes>
     <resources>

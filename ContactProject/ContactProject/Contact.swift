@@ -8,8 +8,8 @@
 import Foundation
 
 struct Contact {
-    var name: String
     var phoneNumber: String
-    
+    static var name: [String] = []
+    static var filteredName: [String] = []
     static var contactList: [Contact] = []
 }
