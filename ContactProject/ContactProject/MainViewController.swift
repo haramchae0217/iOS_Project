@@ -28,12 +28,13 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Contact.filteredName = Contact.name
+        Contact.contactList.filteredName = Contact.contactList.name
         
-        let sortedName = Contact.filteredName.sorted { lhs, rhs in
+        let sortedName = Contact.contactList.filteredName.sorted { lhs, rhs in
             lhs < rhs
         }
-        Contact.filteredName = sortedName
+        Contact.contactList.filteredName = sortedName
+        
         tableView.reloadData()
     }
     @IBAction func addContactButtonClicked(_ sender: UIBarButtonItem) {
@@ -44,26 +45,32 @@ class MainViewController: UIViewController {
     @IBAction func groupContactButtonClicked(_ sender: UIBarButtonItem) {
     }
     
+    func showAlert() {
+        let alert = UIAlertController(title: "⚠️", message: "다시 확인 후 검색하세요.", preferredStyle: .alert)
+        let doneButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(doneButton)
+        present(alert, animated: true, completion: nil)
+    }
 
 }
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactTableViewCell else { return UITableViewCell() }
-        if !Contact.filteredName.isEmpty {
-            cell.contactNameLabel.text = Contact.filteredName[indexPath.row]
+        if !Contact.contactList.filteredName.isEmpty{
+            cell.contactNameLabel.text = Contact.contactList.filteredName[indexPath.row]
         }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Contact.filteredName.count
+        Contact.contactList.filteredName.count
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            UIAlertController.showAlert(message: "정말 삭제하시겠습니까?", vc: self)
         if editingStyle == .delete {
-            Contact.contactList.remove(at: indexPath.row)
-            Contact.name.remove(at: indexPath.row)
-            Contact.filteredName.remove(at: indexPath.row)
+            Contact.contactList.filteredName.remove(at: indexPath.row)
+            Contact.contactList.name.remove(at: indexPath.row)
+            Contact.contactList.phoneNumber.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -76,11 +83,12 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let editVC = storyboard?.instantiateViewController(withIdentifier: "editContactVC") as? EditContactViewController else { return }
-        title = "연락처 상세회면"
+        guard let editVC = storyboard?.instantiateViewController(withIdentifier: "addContactVC") as? AddContactViewController else { return }
         editVC.editRow = indexPath.row
-        editVC.editContact = Contact.contactList[indexPath.row]
-        editVC.editName = Contact.name[indexPath.row]
+        editVC.editName = Contact.contactList.name
+        editVC.editPhoneNumber = Contact.contactList.phoneNumber
+        editVC.editFilteredName = Contact.contactList.filteredName
+        editVC.addOrEdit = true
         self.navigationController?.pushViewController(editVC, animated: true)
         
     }
@@ -90,15 +98,22 @@ extension MainViewController: UISearchBarDelegate, UISearchResultsUpdating,
 UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         if let name = searchController.searchBar.text {
-            Contact.filteredName = Contact.name.filter{ $0.lowercased().contains(name) }
+            Contact.contactList.filteredName = Contact.contactList.name.filter{ $0.lowercased().contains(name)}
         }
-   
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let sortedName = Contact.contactList.filteredName.sorted { lhs, rhs in
+            lhs < rhs
+        }
+        Contact.contactList.filteredName = sortedName
         tableView.reloadData()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        Contact.filteredName = Contact.name
+        Contact.contactList.filteredName = Contact.contactList.name
+        let sortedName = Contact.contactList.filteredName.sorted { lhs, rhs in
+            lhs < rhs
+        }
+        Contact.contactList.filteredName = sortedName
         tableView.reloadData()
     }
 }

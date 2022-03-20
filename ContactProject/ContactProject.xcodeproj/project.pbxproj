@@ -16,7 +16,6 @@
 		832D778627E5B03700F688CB /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778527E5B03700F688CB /* AddContactViewController.swift */; };
 		832D778827E5B04900F688CB /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778727E5B04900F688CB /* ContactTableViewCell.swift */; };
 		832D778A27E5B05800F688CB /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778927E5B05800F688CB /* Contact.swift */; };
-		832D778C27E5D4DA00F688CB /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778B27E5D4DA00F688CB /* EditContactViewController.swift */; };
 		832D778E27E5DDE900F688CB /* UIAlertController++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		832D778527E5B03700F688CB /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		832D778727E5B04900F688CB /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		832D778927E5B05800F688CB /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		832D778B27E5D4DA00F688CB /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 		832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController++Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,11 +67,10 @@
 				832D777127E5AE3000F688CB /* AppDelegate.swift */,
 				832D777327E5AE3000F688CB /* SceneDelegate.swift */,
 				832D777527E5AE3000F688CB /* MainViewController.swift */,
-				832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */,
-				832D778B27E5D4DA00F688CB /* EditContactViewController.swift */,
 				832D778527E5B03700F688CB /* AddContactViewController.swift */,
 				832D778727E5B04900F688CB /* ContactTableViewCell.swift */,
 				832D778927E5B05800F688CB /* Contact.swift */,
+				832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */,
 				832D777727E5AE3000F688CB /* Main.storyboard */,
 				832D777A27E5AE3100F688CB /* Assets.xcassets */,
 				832D777C27E5AE3100F688CB /* LaunchScreen.storyboard */,
@@ -156,7 +153,6 @@
 				832D777627E5AE3000F688CB /* MainViewController.swift in Sources */,
 				832D778827E5B04900F688CB /* ContactTableViewCell.swift in Sources */,
 				832D778E27E5DDE900F688CB /* UIAlertController++Extension.swift in Sources */,
-				832D778C27E5D4DA00F688CB /* EditContactViewController.swift in Sources */,
 				832D778627E5B03700F688CB /* AddContactViewController.swift in Sources */,
 				832D778A27E5B05800F688CB /* Contact.swift in Sources */,
 				832D777227E5AE3000F688CB /* AppDelegate.swift in Sources */,
