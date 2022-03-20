@@ -14,18 +14,17 @@ class AddContactViewController: UIViewController {
     
     static let identifier = "addContactVC"
     var editContact: Contact?
-    var editName: [String?] = []
     var editRow: Int?
-    var editPhoneNumber: [String?] = []
-    var editFilteredName: [String?] = []
+    var editName: String?
+    var editFilteredName: String?
     var addOrEdit: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let editContact = editContact {
-//            addPhoneNumberTextField.text = editContact.phoneNumber
-//            addNameTextField.text = editName
-//        }
+        if let editContact = editContact {
+            addPhoneNumberTextField.text = editContact.phoneNumber
+            addNameTextField.text = editName
+        }
         if addOrEdit {
             title = "상세화면"
         } else {
@@ -40,16 +39,15 @@ class AddContactViewController: UIViewController {
             let editName = addNameTextField.text!
             let editPhoneNumber = addPhoneNumberTextField.text!
             
-            //guard let contact = editContact else { return }
-            if Contact.contactList.phoneNumber == [editPhoneNumber] && Contact.contactList.name == [editName] {
+            guard let contact = editContact else { return }
+            if contact.phoneNumber == editPhoneNumber && Contact.name == [editName] {
                 showAlert()
                 return
             }
-            let edit = Contact(phoneNumber: [editPhoneNumber], name: [editName])
+            let editContact = Contact(phoneNumber: editPhoneNumber)
             if let editRow = editRow {
-                Contact.contactList
                 Contact.contactList[editRow] = editContact
-                Contact.name[editRow] = editName
+                Contact.name = [editName]
             }
         } else {
                 let addName = addNameTextField.text!
