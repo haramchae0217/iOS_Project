@@ -12,8 +12,8 @@ extension UIAlertController {
         // 1. alert 만들기
         let alert = UIAlertController(title: "⚠️", message: message , preferredStyle: .alert)
         // 2. button 만들기
-        let doneButton = UIAlertAction(title: "확인", style: .default, handler: nil)
-        let cancelButton = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let doneButton = UIAlertAction(title: "확인", style: .destructive)
+        let cancelButton = UIAlertAction(title: "취소", style: .default)
         alert.addAction(cancelButton)
         alert.addAction(doneButton)
         
