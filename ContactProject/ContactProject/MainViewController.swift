@@ -35,11 +35,6 @@ class MainViewController: UIViewController {
         }
         Contact.name = sortedName
         
-        let sortedPhoneNumber = Contact.contactList.sorted { lhs, rhs in
-            lhs.phoneNumber < rhs.phoneNumber
-        }
-        Contact.contactList = sortedPhoneNumber
-        
         let sortedFilteredName = Contact.filteredName.sorted { lhs, rhs in
             lhs < rhs
         }
