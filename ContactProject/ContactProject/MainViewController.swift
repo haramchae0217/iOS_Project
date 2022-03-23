@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Contact.filteredName = Contact.name
-        
+    
         let sortedName = Contact.name.sorted { lhs, rhs in
             lhs < rhs
         }
@@ -52,18 +52,8 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(addContactVC, animated: true)
     }
     
-//    func showAlert() {
-//        let alertAction = UIAlertController(title: "⚠️", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
-//        let done = UIAlertAction(title: "확인", style: .default) { _ in
-//
-//        }
-//        let cancel = UIAlertAction(title: "취소", style: .cancel)
-//        alertAction.addAction(done)
-//        alertAction.addAction(cancel)
-//        self.present(alertAction, animated: true, completion: nil)
-//    }
-    
     @IBAction func groupContactButtonClicked(_ sender: UIBarButtonItem) {
+        
     }
 
 }
@@ -71,7 +61,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactTableViewCell else { return UITableViewCell() }
-        if !Contact.filteredName.isEmpty{
+        if !Contact.filteredName.isEmpty {
             cell.contactNameLabel.text = Contact.filteredName[indexPath.row]
         }
         return cell
@@ -80,16 +70,17 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         Contact.filteredName.count
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             showAlert()
         }
+        
         func showAlert() {
-            // 1. alert 만들기
             let alert = UIAlertController(title: "⚠️", message: "정말 삭제하시겠습니까?" , preferredStyle: .alert)
-            // 2. button 만들기
             let doneButton = UIAlertAction(title: "확인", style: .destructive) { _ in
                 Contact.name.remove(at: indexPath.row)
+                Contact.filteredName.remove(at: indexPath.row)
                 Contact.contactList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
@@ -97,8 +88,6 @@ extension MainViewController: UITableViewDataSource {
             let cancelButton = UIAlertAction(title: "취소", style: .default)
             alert.addAction(cancelButton)
             alert.addAction(doneButton)
-                
-                // 3. present 하기
             present(alert, animated: true, completion: nil)
             
         }
@@ -120,7 +109,6 @@ extension MainViewController: UITableViewDelegate {
         editVC.editContact = Contact.contactList[indexPath.row]
         editVC.addOrEdit = true
         self.navigationController?.pushViewController(editVC, animated: true)
-        
     }
 }
 
@@ -132,6 +120,10 @@ UISearchControllerDelegate {
         }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let sortedFilteredName = Contact.filteredName.sorted { lhs, rhs in
+            lhs < rhs
+        }
+        Contact.filteredName = sortedFilteredName
         tableView.reloadData()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
