@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        filteredList = MyDB.contactList
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -31,8 +33,6 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
         tableView.reloadData()
     }
     @IBAction func addContactButtonClicked(_ sender: UIBarButtonItem) {
@@ -48,13 +48,15 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MyDB.contactList.count
+        return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.identifier, for: indexPath) as? ContactTableViewCell else { return UITableViewCell() }
-        let contact = MyDB.contactList[indexPath.row]
-        cell.nameLabel.text = contact.name
+        if !filteredList.isEmpty {
+            let contact = filteredList[indexPath.row]
+            cell.nameLabel.text = contact.name
+        }
         
         return cell
     }
@@ -94,25 +96,19 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
-extension MainViewController: UISearchBarDelegate, UISearchResultsUpdating,
-UISearchControllerDelegate {
+extension MainViewController: UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-//            filteredName = MyDB.contactList.filter({ contact in
-//                contact.name.map { char in
-//                    String(char)
-//                }.contains(searchText)
-//            })
             filteredList = MyDB.contactList.filter{ $0.name.map { String($0) }.contains(searchText) }
-        print(filteredList)
         }
     }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
         tableView.reloadData()
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
+        filteredList = MyDB.contactList
         tableView.reloadData()
     }
 }
