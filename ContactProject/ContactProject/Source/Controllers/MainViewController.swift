@@ -10,9 +10,10 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let heightForRow: CGFloat = 60
     
-    static var filteredName: [Contact] = []
+    var filteredList: [Contact] = []
+    
+    let heightForRow: CGFloat = 60
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +97,14 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UISearchBarDelegate, UISearchResultsUpdating,
 UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        if let name = searchController.searchBar.text {
-            
+        if let searchText = searchController.searchBar.text {
+//            filteredName = MyDB.contactList.filter({ contact in
+//                contact.name.map { char in
+//                    String(char)
+//                }.contains(searchText)
+//            })
+            filteredList = MyDB.contactList.filter{ $0.name.map { String($0) }.contains(searchText) }
+        print(filteredList)
         }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
