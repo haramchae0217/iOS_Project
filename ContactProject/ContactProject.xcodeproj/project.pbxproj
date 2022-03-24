@@ -17,6 +17,7 @@
 		832D778827E5B04900F688CB /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778727E5B04900F688CB /* ContactTableViewCell.swift */; };
 		832D778A27E5B05800F688CB /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778927E5B05800F688CB /* Contact.swift */; };
 		832D778E27E5DDE900F688CB /* UIAlertController++Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */; };
+		836FCDD227EC7CE900FA5C46 /* MyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836FCDD127EC7CE900FA5C46 /* MyDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		832D778727E5B04900F688CB /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		832D778927E5B05800F688CB /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController++Extension.swift"; sourceTree = "<group>"; };
+		836FCDD127EC7CE900FA5C46 /* MyDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,19 +66,68 @@
 		832D777027E5AE3000F688CB /* ContactProject */ = {
 			isa = PBXGroup;
 			children = (
-				832D777127E5AE3000F688CB /* AppDelegate.swift */,
-				832D777327E5AE3000F688CB /* SceneDelegate.swift */,
-				832D777527E5AE3000F688CB /* MainViewController.swift */,
-				832D778527E5B03700F688CB /* AddContactViewController.swift */,
-				832D778727E5B04900F688CB /* ContactTableViewCell.swift */,
-				832D778927E5B05800F688CB /* Contact.swift */,
-				832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */,
-				832D777727E5AE3000F688CB /* Main.storyboard */,
-				832D777A27E5AE3100F688CB /* Assets.xcassets */,
-				832D777C27E5AE3100F688CB /* LaunchScreen.storyboard */,
+				836FCDD427EC7FF800FA5C46 /* Source */,
+				836FCDD327EC7FE800FA5C46 /* Resource */,
 				832D777F27E5AE3100F688CB /* Info.plist */,
 			);
 			path = ContactProject;
+			sourceTree = "<group>";
+		};
+		836FCDD327EC7FE800FA5C46 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				832D777727E5AE3000F688CB /* Main.storyboard */,
+				832D777A27E5AE3100F688CB /* Assets.xcassets */,
+				832D777C27E5AE3100F688CB /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		836FCDD427EC7FF800FA5C46 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				836FCDD827EC806D00FA5C46 /* Cells */,
+				836FCDD727EC806400FA5C46 /* Controllers */,
+				836FCDD627EC805900FA5C46 /* Extension */,
+				836FCDD527EC800300FA5C46 /* Model */,
+				832D777127E5AE3000F688CB /* AppDelegate.swift */,
+				832D777327E5AE3000F688CB /* SceneDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		836FCDD527EC800300FA5C46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				836FCDD127EC7CE900FA5C46 /* MyDB.swift */,
+				832D778927E5B05800F688CB /* Contact.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		836FCDD627EC805900FA5C46 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				832D778D27E5DDE900F688CB /* UIAlertController++Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		836FCDD727EC806400FA5C46 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				832D777527E5AE3000F688CB /* MainViewController.swift */,
+				832D778527E5B03700F688CB /* AddContactViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		836FCDD827EC806D00FA5C46 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				832D778727E5B04900F688CB /* ContactTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				832D777627E5AE3000F688CB /* MainViewController.swift in Sources */,
+				836FCDD227EC7CE900FA5C46 /* MyDB.swift in Sources */,
 				832D778827E5B04900F688CB /* ContactTableViewCell.swift in Sources */,
 				832D778E27E5DDE900F688CB /* UIAlertController++Extension.swift in Sources */,
 				832D778627E5B03700F688CB /* AddContactViewController.swift in Sources */,

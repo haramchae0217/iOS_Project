@@ -9,7 +9,5 @@ import Foundation
 
 struct Contact {
     var phoneNumber: String
-    static var name: [String] = []
-    static var filteredName: [String] = []
-    static var contactList: [Contact] = []
+    var name: String
 }

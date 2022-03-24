@@ -40,21 +40,21 @@ class AddContactViewController: UIViewController {
             let editPhoneNumber = addPhoneNumberTextField.text!
             
             guard let contact = editContact else { return }
-            if contact.phoneNumber == editPhoneNumber && Contact.name == [editName] {
-                showAlert()
-                return
-            }
-            let editContact = Contact(phoneNumber: editPhoneNumber)
-            if let editRow = editRow {
-                Contact.contactList[editRow] = editContact
-                Contact.name = [editName]
-            }
-        } else {
-                let addName = addNameTextField.text!
-                let addPhoneNumber = addPhoneNumberTextField.text!
-                let newContact = Contact(phoneNumber: addPhoneNumber)
-                Contact.name.append(addName)
-                Contact.contactList.append(newContact)
+//            if contact.phoneNumber == editPhoneNumber && Contact.name == [editName] {
+//                showAlert()
+//                return
+//            }
+//            let editContact = Contact(phoneNumber: editPhoneNumber)
+//            if let editRow = editRow {
+//                Contact.contactList[editRow] = editContact
+//                Contact.name = [editName]
+//            }
+//        } else {
+//                let addName = addNameTextField.text!
+//                let addPhoneNumber = addPhoneNumberTextField.text!
+//                let newContact = Contact(phoneNumber: addPhoneNumber)
+//                Contact.name.append(addName)
+//                Contact.contactList.append(newContact)
             }
         
         self.navigationController?.popViewController(animated: true)
