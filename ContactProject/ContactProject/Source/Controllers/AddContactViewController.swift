@@ -14,7 +14,12 @@ class AddContactViewController: UIViewController {
     
     var editContact: Contact?
     var editRow: Int?
-    var addOrEdit: Bool = false
+    var viewType: ViewType = .add
+    
+    enum ViewType {
+        case add
+        case edit
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +27,10 @@ class AddContactViewController: UIViewController {
             phoneTextField.text = editContact.phoneNumber
             nameTextField.text = editContact.name
         }
-        if addOrEdit {
-            title = "상세화면"
-        } else {
+        if viewType == .add {
             title = "새로운 연락처"
+        } else {
+            title = "상세화면"
         }
         let doneRightBarButton = UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(addContactBarButton))
         self.navigationItem.rightBarButtonItem = doneRightBarButton
@@ -35,12 +40,14 @@ class AddContactViewController: UIViewController {
         let name = nameTextField.text!
         let phoneNumber = phoneTextField.text!
         let newContact = Contact(name: name, phoneNumber: phoneNumber)
-        if addOrEdit {
+        
+        if viewType == .add {
+            MyDB.contactList.append(newContact)
+            
+        } else {
             if let row = editRow {
                 MyDB.contactList[row] = newContact
             }
-        } else {
-            MyDB.contactList.append(newContact)
         }
         
         self.navigationController?.popViewController(animated: true)

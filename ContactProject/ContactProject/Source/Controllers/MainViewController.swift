@@ -88,7 +88,7 @@ extension MainViewController: UITableViewDelegate {
         guard let editVC = storyboard?.instantiateViewController(withIdentifier: "addContactVC") as? AddContactViewController else { return }
         editVC.editRow = indexPath.row
         editVC.editContact = MyDB.contactList[indexPath.row]
-        editVC.addOrEdit = true
+        editVC.viewType = .edit
         self.navigationController?.pushViewController(editVC, animated: true)
     }
 }
