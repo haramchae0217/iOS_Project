@@ -8,6 +8,6 @@
 import Foundation
 
 struct Contact {
-    var phoneNumber: String
     var name: String
+    var phoneNumber: String
 }

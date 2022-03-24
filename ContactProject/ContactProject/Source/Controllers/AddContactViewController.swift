@@ -32,27 +32,16 @@ class AddContactViewController: UIViewController {
     }
     
     @objc func addContactBarButton() {
+        let name = nameTextField.text!
+        let phoneNumber = phoneTextField.text!
+        let newContact = Contact(name: name, phoneNumber: phoneNumber)
         if addOrEdit {
-            let editName = nameTextField.text!
-            let editPhoneNumber = phoneTextField.text!
-            
-            guard let contact = editContact else { return }
-//            if contact.phoneNumber == editPhoneNumber && Contact.name == [editName] {
-//                showAlert()
-//                return
-//            }
-//            let editContact = Contact(phoneNumber: editPhoneNumber)
-//            if let editRow = editRow {
-//                Contact.contactList[editRow] = editContact
-//                Contact.name = [editName]
-//            }
-//        } else {
-//                let addName = addNameTextField.text!
-//                let addPhoneNumber = addPhoneNumberTextField.text!
-//                let newContact = Contact(phoneNumber: addPhoneNumber)
-//                Contact.name.append(addName)
-//                Contact.contactList.append(newContact)
+            if let row = editRow {
+                MyDB.contactList[row] = newContact
             }
+        } else {
+            MyDB.contactList.append(newContact)
+        }
         
         self.navigationController?.popViewController(animated: true)
     }

@@ -97,13 +97,10 @@ extension MainViewController: UISearchBarDelegate, UISearchResultsUpdating,
 UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         if let name = searchController.searchBar.text {
-            //Contact.filteredName = Contact.name.filter{ $0.lowercased().contains(name)}
+            
         }
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        let sortedFilteredName = Contact.filteredName.sorted { lhs, rhs in
-//            lhs < rhs
-//        }
         
         tableView.reloadData()
     }
