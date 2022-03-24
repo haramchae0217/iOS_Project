@@ -9,8 +9,7 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
 
-    let reusableIdentifier = "contactCell"
-    @IBOutlet weak var contactNameLabel: UILabel!
+    static let identifier = "contactCell"
+    @IBOutlet weak var nameLabel: UILabel!
     
-
 }

@@ -42,7 +42,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="contactNameLabel" destination="dPC-ON-XEH" id="O3k-hg-sUm"/>
+                                            <outlet property="nameLabel" destination="dPC-ON-XEH" id="z76-9F-IPN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -109,8 +109,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z6q-mT-lzf"/>
                     <connections>
-                        <outlet property="addNameTextField" destination="cem-9j-hmi" id="faf-vg-b5c"/>
-                        <outlet property="addPhoneNumberTextField" destination="LSI-aq-gtc" id="hEP-vT-gzJ"/>
+                        <outlet property="nameTextField" destination="cem-9j-hmi" id="VTk-0q-Mxo"/>
+                        <outlet property="phoneTextField" destination="LSI-aq-gtc" id="L1X-7C-n2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Esi-ON-g2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

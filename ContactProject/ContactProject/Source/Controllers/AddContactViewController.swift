@@ -9,21 +9,18 @@ import UIKit
 
 class AddContactViewController: UIViewController {
 
-    @IBOutlet weak var addNameTextField: UITextField!
-    @IBOutlet weak var addPhoneNumberTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
     
-    static let identifier = "addContactVC"
     var editContact: Contact?
     var editRow: Int?
-    var editName: String?
-    var editFilteredName: String?
     var addOrEdit: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let editContact = editContact {
-            addPhoneNumberTextField.text = editContact.phoneNumber
-            addNameTextField.text = editName
+            phoneTextField.text = editContact.phoneNumber
+            nameTextField.text = editContact.name
         }
         if addOrEdit {
             title = "상세화면"
@@ -36,8 +33,8 @@ class AddContactViewController: UIViewController {
     
     @objc func addContactBarButton() {
         if addOrEdit {
-            let editName = addNameTextField.text!
-            let editPhoneNumber = addPhoneNumberTextField.text!
+            let editName = nameTextField.text!
+            let editPhoneNumber = phoneTextField.text!
             
             guard let contact = editContact else { return }
 //            if contact.phoneNumber == editPhoneNumber && Contact.name == [editName] {
