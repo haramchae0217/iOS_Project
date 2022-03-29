@@ -13,7 +13,7 @@ class ToDoViewController: UIViewController {
     @IBOutlet weak var toDoListTableView: UITableView!
 
     // Property
-    var toDoList: [ToDo] = [] // 이름 변경
+    //var toDoList: [ToDo] = [] // 이름 변경
     
     override func viewDidLoad() {
         super.viewDidLoad()
