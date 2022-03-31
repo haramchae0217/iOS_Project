@@ -16,11 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="OJP-4o-qiy">
-                                <rect key="frame" x="0.0" y="88" width="414" height="364"/>
-                            </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CUT-lI-wUt">
-                                <rect key="frame" x="0.0" y="452" width="414" height="361"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diaryTableCell" rowHeight="108" id="NDq-Uz-YkA" customClass="DiaryTableViewCell" customModule="diary" customModuleProvider="target">
@@ -94,11 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="UEK-jt-VZs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="OJP-4o-qiy" firstAttribute="top" secondItem="UEK-jt-VZs" secondAttribute="top" id="4jm-1V-hGC"/>
-                            <constraint firstItem="UEK-jt-VZs" firstAttribute="leading" secondItem="OJP-4o-qiy" secondAttribute="leading" id="A1o-dt-v0e"/>
                             <constraint firstItem="UEK-jt-VZs" firstAttribute="bottom" secondItem="CUT-lI-wUt" secondAttribute="bottom" id="KKr-yQ-G0o"/>
-                            <constraint firstItem="CUT-lI-wUt" firstAttribute="top" secondItem="OJP-4o-qiy" secondAttribute="bottom" id="LeW-x5-ZAA"/>
-                            <constraint firstItem="UEK-jt-VZs" firstAttribute="trailing" secondItem="OJP-4o-qiy" secondAttribute="trailing" id="SbJ-wg-dgF"/>
+                            <constraint firstItem="CUT-lI-wUt" firstAttribute="top" secondItem="UEK-jt-VZs" secondAttribute="top" id="PaM-p7-8zv"/>
                             <constraint firstItem="CUT-lI-wUt" firstAttribute="leading" secondItem="UEK-jt-VZs" secondAttribute="leading" id="WPH-RV-BqN"/>
                             <constraint firstItem="UEK-jt-VZs" firstAttribute="trailing" secondItem="CUT-lI-wUt" secondAttribute="trailing" id="lZ3-yn-QFj"/>
                         </constraints>
@@ -109,12 +103,15 @@
                                 <action selector="searchBarButton:" destination="l5B-Nh-jQA" id="HBN-1y-L8o"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="XQg-sy-jZ2">
-                            <color key="tintColor" red="0.93545049430000005" green="0.61726331710000004" blue="0.51370078330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="addDiaryBarButtonItem:" destination="l5B-Nh-jQA" id="doY-KP-DED"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" systemItem="add" id="XQg-sy-jZ2">
+                                <color key="tintColor" red="0.93545049430000005" green="0.61726331710000004" blue="0.51370078330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="addDiaryBarButtonItem:" destination="l5B-Nh-jQA" id="doY-KP-DED"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="calendar" catalog="system" id="8ex-kb-b4X"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="diaryTableView" destination="CUT-lI-wUt" id="aRY-u5-nS0"/>
