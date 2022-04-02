@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-ru-dWn" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="276"/>
+                                <rect key="frame" x="20" y="44" width="374" height="249.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fWn-ru-dWn" secondAttribute="height" multiplier="1.5:1" id="P4Z-T9-gbS"/>
@@ -28,17 +28,37 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-iJ-gaK">
+                                <rect key="frame" x="20" y="323.5" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedules" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baw-ZG-nyY">
+                                <rect key="frame" x="20" y="367.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fWn-ru-dWn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2dF-zK-9N2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fWn-ru-dWn" secondAttribute="trailing" id="fYw-Ck-DX0"/>
+                            <constraint firstItem="fWn-ru-dWn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2dF-zK-9N2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XE3-iJ-gaK" secondAttribute="trailing" constant="20" id="C1b-Jz-bin"/>
+                            <constraint firstItem="XE3-iJ-gaK" firstAttribute="top" secondItem="fWn-ru-dWn" secondAttribute="bottom" constant="30" id="E13-Ha-eC8"/>
+                            <constraint firstItem="baw-ZG-nyY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Tmk-V1-ETM"/>
+                            <constraint firstItem="baw-ZG-nyY" firstAttribute="top" secondItem="XE3-iJ-gaK" secondAttribute="bottom" constant="20" id="eHo-8J-M2k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fWn-ru-dWn" secondAttribute="trailing" constant="20" id="fYw-Ck-DX0"/>
                             <constraint firstItem="fWn-ru-dWn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="q3q-LW-C8L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="baw-ZG-nyY" secondAttribute="trailing" constant="20" id="qQz-QG-RaJ"/>
+                            <constraint firstItem="XE3-iJ-gaK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vme-gQ-6au"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="fWn-ru-dWn" id="1gE-3b-0IH"/>
+                        <outlet property="dateLabel" destination="XE3-iJ-gaK" id="a9b-O1-gZR"/>
+                        <outlet property="schedulesLabel" destination="baw-ZG-nyY" id="HLd-lp-iZx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
