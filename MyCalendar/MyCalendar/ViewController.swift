@@ -99,7 +99,31 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         dateLabel.text = dateFormatter.string(from: date)
-            // 화면 전환 코드, 데이터 리로드 코드
+        
+        // 분기 처리 2개 -> 데이터가 있을 때, 없을 때
+        /*
+         오후 1시 > 점심먹기
+         오후 2시 > 공부하기
+         */
+        let scheduleList = MyDB.dataList.filter { schedule in
+            schedule.date == date
+        }
+        
+        if scheduleList.count > 0 {
+            
+            var text: String = ""
+            
+            for str in scheduleList {
+                text.append("\(str.time) > \(str.title)\n")
+            }
+            schedulesLabel.text = text
+            
+        } else {
+            schedulesLabel.text = "오늘은 스케쥴이 없습니다."
+        }
+        
+        
+        // 화면 전환 코드, 데이터 리로드 코드
         
     }
 }
