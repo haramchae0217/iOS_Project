@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FSCalendar
 
 class DiaryViewController: UIViewController {
     
@@ -24,6 +25,11 @@ class DiaryViewController: UIViewController {
         filterHashTag = Diary.diaryList
         diaryTableView.reloadData()
     }
+    
+    func calendarSetting() {
+        
+    }
+    
     @IBAction func addDiaryBarButtonItem(_ sender: UIBarButtonItem) {
         guard let addVC = self.storyboard?.instantiateViewController(withIdentifier: "addDiaryVC") as? AddDiaryViewController else { return }
         self.navigationController?.pushViewController(addVC, animated: true)

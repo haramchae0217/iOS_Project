@@ -22,8 +22,6 @@ extension DateFormatter {
         return self.date(from: target)!
     }
     
-    
-    // 날짜 -> 문자열
     func toStringFromDate(target: Date) -> String {
         self.dateFormat = "yyyy/MM/dd"
         return self.string(from: target)
