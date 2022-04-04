@@ -16,6 +16,7 @@
 		83D512AD27F5A7AB009B3A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D512AC27F5A7AB009B3A23 /* Assets.xcassets */; };
 		83D512B027F5A7AB009B3A23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D512AE27F5A7AB009B3A23 /* LaunchScreen.storyboard */; };
 		83D512B927F5A9C3009B3A23 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 83D512B827F5A9C3009B3A23 /* FSCalendar */; };
+		83FAE01327FB67EB009F039D /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FAE01227FB67EB009F039D /* ScheduleTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		83D512AC27F5A7AB009B3A23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83D512AF27F5A7AB009B3A23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83D512B127F5A7AB009B3A23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83FAE01227FB67EB009F039D /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				83042EE827F7E3E900D792EE /* MyDB.swift */,
 				83042EEA27F7E3FB00D792EE /* Schedule.swift */,
 				83D512A927F5A7AA009B3A23 /* Main.storyboard */,
+				83FAE01227FB67EB009F039D /* ScheduleTableViewCell.swift */,
 				83D512AC27F5A7AB009B3A23 /* Assets.xcassets */,
 				83D512AE27F5A7AB009B3A23 /* LaunchScreen.storyboard */,
 				83D512B127F5A7AB009B3A23 /* Info.plist */,
@@ -154,6 +157,7 @@
 			files = (
 				83D512A827F5A7AA009B3A23 /* ViewController.swift in Sources */,
 				83042EE927F7E3E900D792EE /* MyDB.swift in Sources */,
+				83FAE01327FB67EB009F039D /* ScheduleTableViewCell.swift in Sources */,
 				83D512A427F5A7AA009B3A23 /* AppDelegate.swift in Sources */,
 				83042EEB27F7E3FB00D792EE /* Schedule.swift in Sources */,
 				83D512A627F5A7AA009B3A23 /* SceneDelegate.swift in Sources */,

@@ -26,8 +26,6 @@ class ViewController: UIViewController {
     }()
 
     @IBOutlet weak var calendarView: FSCalendar!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var schedulesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
