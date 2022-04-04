@@ -25,17 +25,33 @@ class ViewController: UIViewController {
         return df
     }()
 
+    @IBOutlet weak var scheduleTableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        calendarConfigure()
         makeTestData()
+        tableViewConfigure()
+        
+        calendarView.reloadData()
+        scheduleTableView.reloadData()
     
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        calendarView.reloadData()
+        scheduleTableView.reloadData()
+    }
+    
+    func tableViewConfigure() {
+        calendarView.delegate = self
+        calendarView.dataSource = self
+    }
 
-    func configure() {
+    func calendarConfigure() {
         calendarView.delegate = self
         calendarView.dataSource = self
         
@@ -73,6 +89,7 @@ class ViewController: UIViewController {
     func strToDate(str: String) -> Date {
         return dateFormatter.date(from: str)!
     }
+    
 }
 
 extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -96,7 +113,7 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
         return 0
     }
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        dateLabel.text = dateFormatter.string(from: date)
+        //dateLabel.text = dateFormatter.string(from: date)
         
         // 분기 처리 2개 -> 데이터가 있을 때, 없을 때
         /*
@@ -106,7 +123,7 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
         let scheduleList = MyDB.dataList.filter { schedule in
             schedule.date == date
         }
-        
+        guard let  cell = scheduleTableView.dequeueReusableCell(withIdentifier: ScheduleTableViewCell.identifier) as? ScheduleTableViewCell else { return }
         if scheduleList.count > 0 {
             
             var text: String = ""
@@ -114,14 +131,36 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
             for str in scheduleList {
                 text.append("\(str.time) > \(str.title)\n")
             }
-            schedulesLabel.text = text
+            
+            cell.schedulesLabel.text = text
             
         } else {
-            schedulesLabel.text = "오늘은 스케쥴이 없습니다."
+            cell.schedulesLabel.text = "등록된 스케쥴이 없습니다."
         }
         
         
         // 화면 전환 코드, 데이터 리로드 코드
         
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MyDB.dataList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let calendarCell = scheduleTableView.dequeueReusableCell(withIdentifier: ScheduleTableViewCell.identifier, for: indexPath) as? ScheduleTableViewCell else { return UITableViewCell() }
+        let list = MyDB.dataList[indexPath.row]
+        calendarCell.dateLabel.text = dateFormatter.string(from: list.date)
+        calendarCell.schedulesLabel.text = "\(list.time)>\(list.title)"
+        
+        return calendarCell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }

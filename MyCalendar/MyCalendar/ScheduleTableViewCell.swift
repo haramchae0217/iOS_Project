@@ -9,6 +9,8 @@ import UIKit
 
 class ScheduleTableViewCell: UITableViewCell {
 
+    static let identifier = "scheduleCell"
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var schedulesLabel: UILabel!
     
