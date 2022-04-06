@@ -19,11 +19,15 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var calendarView: FSCalendar!
   @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var eventTableView: UITableView!
     
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+      eventTableView.dataSource = self
+      eventTableView.delegate = self
+      
     configure()
     makeTestData()
   }
@@ -107,4 +111,23 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
       //scheduleLabel.text = "오늘은 스케쥴이 없습니다."
     }
   }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = eventTableView.dequeueReusableCell(withIdentifier: EventTableViewCell.identifier, for: indexPath) as? EventTableViewCell else { return UITableViewCell() }
+        cell.titleLabel.text = "title 입니다"
+        cell.timeLabel.text = "time"
+        return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }

@@ -91,6 +91,7 @@
                     <connections>
                         <outlet property="calendarView" destination="QwX-Yr-CQb" id="REn-8E-mEj"/>
                         <outlet property="dateLabel" destination="dCP-Yn-PbW" id="VsF-tS-ZXI"/>
+                        <outlet property="eventTableView" destination="JpI-jZ-V7I" id="gEs-kt-K65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
