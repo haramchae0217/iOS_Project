@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var calendarView: FSCalendar!
   @IBOutlet weak var dateLabel: UILabel!
-  @IBOutlet weak var scheduleLabel: UILabel!
+    
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -102,9 +102,9 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
         text.append("\(s.time) > \(s.title) \n")
       }
       
-      scheduleLabel.text = text
+      //scheduleLabel.text = text
     } else {
-      scheduleLabel.text = "오늘은 스케쥴이 없습니다."
+      //scheduleLabel.text = "오늘은 스케쥴이 없습니다."
     }
   }
 }
