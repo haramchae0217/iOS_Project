@@ -7,13 +7,6 @@
 
 import UIKit
 import FSCalendar
-/*
- // 로직을 짠다. 어떻게 하는 걸까?
- 1. 모델을 설정한다.(모델 & DB) -> 어떤 데이터가 필요하고, 어디에 어떻게 뿌려줄것인가.
- 2. UI 잡기 -> cell에 대한 설정을 한는 등 디테일한 설정을 모델을 바탕으로 잡기.
- 3. 화면 흐름(전환 순서) == 데이터의 흐름
- 4. 세세한 설정 -> 화면을 띄워주는 방식, UI 커스텀
- */
 
 class ViewController: UIViewController {
   
@@ -39,14 +32,12 @@ class ViewController: UIViewController {
     calendarView.delegate = self
     calendarView.dataSource = self
    
-    // calendarView.scrollDirection = .vertical
-    // calendarView.appearance.borderRadius = 0
     calendarView.locale = Locale(identifier: "ko-KR")
     
     calendarView.appearance.selectionColor = .systemMint
     calendarView.appearance.todayColor = .systemGray
     calendarView.appearance.headerTitleColor = .systemBrown
-    // calendarView.calendarWeekdayView.weekdayLabels[3].text = "WED"
+   
   }
   
   func makeTestData() {
@@ -75,7 +66,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
-  // 1개,2개,3개,4개,5개 -> 점갯수는 최대 3개
+  
   func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
     for schedule in MyDB.dataList {
       let eventDate = schedule.date
@@ -98,12 +89,6 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
   
   func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
     dateLabel.text = dateFormatter.string(from: date)
-    // 데이터 있을 때 -> "00개의 스케쥴이 있습니다."
-    // 데이터가 없을 때 -> "오늘은 스케쥴이 없습니다."
-    /*
-     오후 1시 > 점심먹기
-     오후 2시 > 공부하기
-     */
     
     let scheduleList = MyDB.dataList.filter { schedule in
       schedule.date == date
