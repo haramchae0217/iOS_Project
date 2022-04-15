@@ -75,7 +75,6 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
-    
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         for schedule in MyDB.dataList {
             let eventDate = schedule.date
