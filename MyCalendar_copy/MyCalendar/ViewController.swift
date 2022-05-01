@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     
     var filteredList: [Schedule] = []
+    var selectedDate: Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,8 +81,8 @@ class ViewController: UIViewController {
               Schedule(time: "오전 10시", title: "모의 시험", date: strToDate(str: "2022/04/04")),
               Schedule(time: "오후  1시", title: "스터디", date: strToDate(str: "2022/04/06")),
               Schedule(time: "오후  3시", title: "과외", date: strToDate(str: "2022/04/11")),
-              Schedule(time: "오후  5시", title: "과제하기", date: strToDate(str: "2022/04/13")),
               Schedule(time: "오전 11시", title: "본가 가기", date: strToDate(str: "2022/04/13")),
+              Schedule(time: "오후  5시", title: "과제하기", date: strToDate(str: "2022/04/13")),
               Schedule(time: "오후  7시", title: "00이랑 술 약속", date: strToDate(str: "2022/04/20"))
             ]
         list.forEach { schedule in
@@ -93,14 +94,62 @@ class ViewController: UIViewController {
         return dateFormatter.date(from: str)!
     }
     
-    @IBAction func previousButton(_ sender: UIButton) {
+    func DateToStr(Date: Date) -> String {
+        return dateFormatter.string(from: Date)
+    }
     
+    @IBAction func previousButton(_ sender: UIButton) {
+        let sortedList = MyDB.dataList.sorted(by: { $0.date > $1.date }) // 뒤에서 부터 for문을 돌리면서 이전 데이터를 가져오기 위함.
+        
+        var previousDate: Date = selectedDate   // 현재 선택된 날짜보다 이전인 날짜를 구하기 위함.
+                                                // if 이전 날자가 없을 경우 선택된 날짜가 처음날짜이기 때문에 선택된 날짜를 초기값으로 대입
+        filteredList = []                       // 초기화를 해주지 않으면 선택된 날짜들의 데이터들이 계속 쌓이기 때문
+        //var eventList: [Schedule] = []
+        
+        for data in sortedList {                // 역순으로 정렬된 데이터에서 이전날짜 값을 가져옴
+            if selectedDate > data.date {
+                previousDate = data.date
+                break                           // for문에서는 가능하지만 for each는 불가능
+            }
+        }
+        
+        for data in MyDB.dataList {             // 이전 날짜 값을 가져온 상태에서 그 날짜 값과 실제 데이터의 날짜 값이 일치한다면 배열에 추가
+            if previousDate == data.date {
+                filteredList.append(data)
+            }
+        }
+//        if !eventList.isEmpty {
+//            filteredList = eventList
+//        }
+        
+        scheduleTableView.reloadData()
+        selectedDate = previousDate
+        dateLabel.text = DateToStr(Date: selectedDate)
+        
     }
     
     @IBAction func nextButton(_ sender: UIButton) {
-    
+        var nextDate: Date = selectedDate
+        
+        filteredList = []
+        
+        for data in MyDB.dataList {
+            if selectedDate < data.date {
+                nextDate = data.date
+                break
+            }
+        }
+        
+        for data in MyDB.dataList {
+            if nextDate == data.date {
+                filteredList.append(data)
+            }
+        }
+        
+        scheduleTableView.reloadData()
+        selectedDate = nextDate
+        dateLabel.text = DateToStr(Date: selectedDate)
     }
-    
 }
 
 extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -133,6 +182,8 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
         if filteredList.count == 0 {
             filteredList.append(Schedule(time: "", title: "스케쥴이 없는 날입니다.", date: date))
         }
+        
+        selectedDate = date
         scheduleTableView.reloadData()
     }
 }
