@@ -27,6 +27,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var scheduleTableView: UITableView!
     @IBOutlet weak var calendarView: FSCalendar!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    var filteredList: [Schedule] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +50,8 @@ class ViewController: UIViewController {
     }
     
     func tableViewConfigure() {
-        calendarView.delegate = self
-        calendarView.dataSource = self
+        scheduleTableView.delegate = self
+        scheduleTableView.dataSource = self
     }
 
     func calendarConfigure() {
@@ -90,6 +93,14 @@ class ViewController: UIViewController {
         return dateFormatter.date(from: str)!
     }
     
+    @IBAction func previousButton(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func nextButton(_ sender: UIButton) {
+    
+    }
+    
 }
 
 extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
@@ -113,47 +124,30 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
         return 0
     }
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        //dateLabel.text = dateFormatter.string(from: date)
+        dateLabel.text = dateFormatter.string(from: date)
         
-        // 분기 처리 2개 -> 데이터가 있을 때, 없을 때
-        /*
-         오후 1시 > 점심먹기
-         오후 2시 > 공부하기
-         */
-        let scheduleList = MyDB.dataList.filter { schedule in
+        filteredList = MyDB.dataList.filter { schedule in
             schedule.date == date
         }
-        guard let  cell = scheduleTableView.dequeueReusableCell(withIdentifier: ScheduleTableViewCell.identifier) as? ScheduleTableViewCell else { return }
-        if scheduleList.count > 0 {
-            
-            var text: String = ""
-            
-            for str in scheduleList {
-                text.append("\(str.time) > \(str.title)\n")
-            }
-            
-            cell.schedulesLabel.text = text
-            
-        } else {
-            cell.schedulesLabel.text = "등록된 스케쥴이 없습니다."
+        
+        if filteredList.count == 0 {
+            filteredList.append(Schedule(time: "", title: "스케쥴이 없는 날입니다.", date: date))
         }
-        
-        
-        // 화면 전환 코드, 데이터 리로드 코드
-        
+        scheduleTableView.reloadData()
     }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MyDB.dataList.count
+        return filteredList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let calendarCell = scheduleTableView.dequeueReusableCell(withIdentifier: ScheduleTableViewCell.identifier, for: indexPath) as? ScheduleTableViewCell else { return UITableViewCell() }
-        let list = MyDB.dataList[indexPath.row]
-        calendarCell.dateLabel.text = dateFormatter.string(from: list.date)
-        calendarCell.schedulesLabel.text = "\(list.time)>\(list.title)"
+        let list = filteredList[indexPath.row]
+        
+        calendarCell.timeLabel.text = list.time
+        calendarCell.titleLabel.text = list.title
         
         return calendarCell
     }

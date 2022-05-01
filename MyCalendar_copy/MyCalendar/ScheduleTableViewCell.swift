@@ -11,8 +11,9 @@ class ScheduleTableViewCell: UITableViewCell {
 
     static let identifier = "scheduleCell"
     
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var schedulesLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     
     
 }
