@@ -14,6 +14,7 @@ class LineViewController: UIViewController {
     @IBOutlet weak var numberTextField: UITextField!
     
     var numbers: [Double] = [3.3, 2.4, 11.4, 7.6, 4.4, 8.4, 5.5]
+    var months: [String] = ["1월","2월","3월","4월","5월","6월","7월"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,16 @@ class LineViewController: UIViewController {
         lineChartView.data = data
         // 그래프의 닉네임 형성
         lineChartView.chartDescription?.text = "나의 꺾은선 그래프"
+        
+        // 아래 라벨의 이름을 달로 설정
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+        lineChartView.xAxis.labelPosition = .bottom
+        
+        // 차트 오른쪽 없어짐
+        lineChartView.rightAxis.enabled = false
+        
+        // 차트 시간차 애니메이션
+        lineChartView.animate(xAxisDuration: 2.0)
     }
     
     @IBAction func addDataButton(_ sender: UIButton) {
