@@ -62,17 +62,33 @@
 		830E3EA92827F0700077169A /* ChartExample */ = {
 			isa = PBXGroup;
 			children = (
-				830E3EAA2827F0700077169A /* AppDelegate.swift */,
-				830E3EAC2827F0700077169A /* SceneDelegate.swift */,
-				830E3EAE2827F0700077169A /* ViewController.swift */,
-				830E3EC12827F2010077169A /* LineViewController.swift */,
-				830E3EC32827F20A0077169A /* BarViewController.swift */,
-				830E3EB02827F0700077169A /* Main.storyboard */,
-				830E3EB32827F0740077169A /* Assets.xcassets */,
-				830E3EB52827F0740077169A /* LaunchScreen.storyboard */,
+				830E3EC62827F2620077169A /* Resource */,
+				830E3EC52827F25B0077169A /* Source */,
 				830E3EB82827F0740077169A /* Info.plist */,
 			);
 			path = ChartExample;
+			sourceTree = "<group>";
+		};
+		830E3EC52827F25B0077169A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				830E3EAE2827F0700077169A /* ViewController.swift */,
+				830E3EC12827F2010077169A /* LineViewController.swift */,
+				830E3EC32827F20A0077169A /* BarViewController.swift */,
+				830E3EAA2827F0700077169A /* AppDelegate.swift */,
+				830E3EAC2827F0700077169A /* SceneDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		830E3EC62827F2620077169A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				830E3EB02827F0700077169A /* Main.storyboard */,
+				830E3EB32827F0740077169A /* Assets.xcassets */,
+				830E3EB52827F0740077169A /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

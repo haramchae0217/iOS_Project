@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChartExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcs-Kc-UuU">
+                                <rect key="frame" x="150" y="344" width="114" height="31"/>
+                                <color key="backgroundColor" red="0.98677536840000002" green="0.62205294730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Line Chart"/>
+                                <connections>
+                                    <segue destination="XRV-fI-cqa" kind="show" id="MEg-cp-A6a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pj-Tw-ZUo">
+                                <rect key="frame" x="150" y="475" width="114" height="31"/>
+                                <color key="backgroundColor" red="0.98677536840000002" green="0.62205294730000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Bar Chart"/>
+                                <connections>
+                                    <segue destination="vYg-vr-9wh" kind="show" id="JDR-oz-u8T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dcs-Kc-UuU" secondAttribute="trailing" constant="150" id="2sx-z1-axx"/>
+                            <constraint firstItem="Dcs-Kc-UuU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="44z-h1-lSX"/>
+                            <constraint firstItem="1pj-Tw-ZUo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="7oc-Zl-sUB"/>
+                            <constraint firstItem="1pj-Tw-ZUo" firstAttribute="top" secondItem="Dcs-Kc-UuU" secondAttribute="bottom" constant="100" id="LR5-s4-Hbb"/>
+                            <constraint firstItem="Dcs-Kc-UuU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="RM4-4s-HTT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1pj-Tw-ZUo" secondAttribute="trailing" constant="150" id="ooN-Kz-3UY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="117"/>
+        </scene>
+        <!--Line View Controller-->
+        <scene sceneID="eag-he-vt8">
+            <objects>
+                <viewController id="XRV-fI-cqa" customClass="LineViewController" customModule="ChartExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kLc-DO-ff3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rg-Nr-56E" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="74" width="354" height="189"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Rg-Nr-56E" secondAttribute="height" multiplier="15:8" id="TyI-gC-ayR"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XOn-b7-YAt">
+                                <rect key="frame" x="30" y="293" width="354" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ko-5f-3OR">
+                                        <rect key="frame" x="0.0" y="0.0" width="255.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhL-T8-kfW">
+                                        <rect key="frame" x="265.5" y="0.0" width="88.5" height="34"/>
+                                        <color key="backgroundColor" red="0.93545049430000005" green="0.61726331710000004" blue="0.51370078330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="데이터 추가"/>
+                                        <connections>
+                                            <action selector="addDataButton:" destination="XRV-fI-cqa" eventType="touchUpInside" id="SEG-fG-lWw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xlz-AH-QAC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xlz-AH-QAC" firstAttribute="trailing" secondItem="1Rg-Nr-56E" secondAttribute="trailing" constant="30" id="4BX-Id-Jpx"/>
+                            <constraint firstItem="xlz-AH-QAC" firstAttribute="trailing" secondItem="XOn-b7-YAt" secondAttribute="trailing" constant="30" id="7Cd-K9-MMi"/>
+                            <constraint firstItem="XOn-b7-YAt" firstAttribute="leading" secondItem="xlz-AH-QAC" secondAttribute="leading" constant="30" id="CKM-fm-XGR"/>
+                            <constraint firstItem="1Rg-Nr-56E" firstAttribute="top" secondItem="xlz-AH-QAC" secondAttribute="top" constant="30" id="E8K-al-hHD"/>
+                            <constraint firstItem="XOn-b7-YAt" firstAttribute="top" secondItem="1Rg-Nr-56E" secondAttribute="bottom" constant="30" id="EfX-Ny-V8b"/>
+                            <constraint firstItem="1Rg-Nr-56E" firstAttribute="leading" secondItem="xlz-AH-QAC" secondAttribute="leading" constant="30" id="ubc-va-qOE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="O3h-4G-ZDo"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="1Rg-Nr-56E" id="UXN-0i-wVA"/>
+                        <outlet property="numberTextField" destination="2ko-5f-3OR" id="syk-RR-0Xt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QJx-EH-yJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1200" y="-194"/>
+        </scene>
+        <!--Bar View Controller-->
+        <scene sceneID="css-He-kuA">
+            <objects>
+                <viewController id="vYg-vr-9wh" customClass="BarViewController" customModule="ChartExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7GS-VB-3gs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udN-7I-eTK" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="74" width="354" height="189"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="udN-7I-eTK" secondAttribute="height" multiplier="15:8" id="3OQ-FV-bPZ"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-hX-06Y">
+                                <rect key="frame" x="30" y="293" width="354" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MX7-eH-Nv0">
+                                        <rect key="frame" x="0.0" y="0.0" width="255.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6j-P4-GQ1">
+                                        <rect key="frame" x="265.5" y="0.0" width="88.5" height="34"/>
+                                        <color key="backgroundColor" red="0.93545049430000005" green="0.61726331710000004" blue="0.51370078330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="데이터 추가"/>
+                                        <connections>
+                                            <action selector="addDataButton:" destination="vYg-vr-9wh" eventType="touchUpInside" id="sZG-GV-9xK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YOS-Vc-0H4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YOS-Vc-0H4" firstAttribute="trailing" secondItem="ayY-hX-06Y" secondAttribute="trailing" constant="30" id="0m1-fY-dh7"/>
+                            <constraint firstItem="udN-7I-eTK" firstAttribute="leading" secondItem="YOS-Vc-0H4" secondAttribute="leading" constant="30" id="823-Cg-um0"/>
+                            <constraint firstItem="YOS-Vc-0H4" firstAttribute="trailing" secondItem="udN-7I-eTK" secondAttribute="trailing" constant="30" id="GR4-CU-WEs"/>
+                            <constraint firstItem="udN-7I-eTK" firstAttribute="top" secondItem="YOS-Vc-0H4" secondAttribute="top" constant="30" id="TnI-fQ-WGA"/>
+                            <constraint firstItem="ayY-hX-06Y" firstAttribute="top" secondItem="udN-7I-eTK" secondAttribute="bottom" constant="30" id="bDS-hB-Twr"/>
+                            <constraint firstItem="ayY-hX-06Y" firstAttribute="leading" secondItem="YOS-Vc-0H4" secondAttribute="leading" constant="30" id="jPq-f6-pLd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oky-dz-Jbl"/>
+                    <connections>
+                        <outlet property="barChartView" destination="udN-7I-eTK" id="kd4-lb-ost"/>
+                        <outlet property="dataTextField" destination="MX7-eH-Nv0" id="yU7-ox-reU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d19-W3-TL3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1199" y="557"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
