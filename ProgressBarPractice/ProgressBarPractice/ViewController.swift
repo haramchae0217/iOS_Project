@@ -28,7 +28,6 @@ class ViewController: UIViewController {
         timer.invalidate()
     }
     
-    
     func UIprogressView() {
         progressView.progressViewStyle = .default
         progressView.progressTintColor = .systemBlue
