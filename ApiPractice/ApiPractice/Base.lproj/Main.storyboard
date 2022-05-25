@@ -1,24 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ApiPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="highlighter" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QaB-xU-oz5">
+                                <rect key="frame" x="20" y="62.5" width="374" height="374"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QaB-xU-oz5" secondAttribute="height" multiplier="1:1" id="Syc-WY-Mih"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRG-yz-6nG">
+                                <rect key="frame" x="20" y="458" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="first_brewed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faZ-fM-trv">
+                                <rect key="frame" x="20" y="540" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBb-ND-gse">
+                                <rect key="frame" x="20" y="581" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyC-tb-nvu">
+                                <rect key="frame" x="20" y="622" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tagLine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6U-kF-ATJ">
+                                <rect key="frame" x="20" y="499" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QaB-xU-oz5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0ts-QV-gES"/>
+                            <constraint firstItem="Z6U-kF-ATJ" firstAttribute="top" secondItem="CRG-yz-6nG" secondAttribute="bottom" constant="20" id="3eI-Fn-0Wx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CRG-yz-6nG" secondAttribute="trailing" constant="20" id="8zR-MH-NuU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="faZ-fM-trv" secondAttribute="trailing" constant="20" id="Ac4-pK-XQO"/>
+                            <constraint firstItem="faZ-fM-trv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CQR-yX-Zy4"/>
+                            <constraint firstItem="TyC-tb-nvu" firstAttribute="top" secondItem="dBb-ND-gse" secondAttribute="bottom" constant="20" id="Efi-rA-J6S"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TyC-tb-nvu" secondAttribute="trailing" constant="20" id="NFP-JA-hXx"/>
+                            <constraint firstItem="QaB-xU-oz5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="bHw-6G-0J4"/>
+                            <constraint firstItem="CRG-yz-6nG" firstAttribute="top" secondItem="QaB-xU-oz5" secondAttribute="bottom" constant="20" id="ca7-1t-ASj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dBb-ND-gse" secondAttribute="trailing" constant="20" id="dd7-ov-T8r"/>
+                            <constraint firstItem="faZ-fM-trv" firstAttribute="top" secondItem="Z6U-kF-ATJ" secondAttribute="bottom" constant="20" id="hKS-nC-uM1"/>
+                            <constraint firstItem="CRG-yz-6nG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kHK-vr-kUk"/>
+                            <constraint firstItem="TyC-tb-nvu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kQf-fz-xb1"/>
+                            <constraint firstItem="dBb-ND-gse" firstAttribute="top" secondItem="faZ-fM-trv" secondAttribute="bottom" constant="20" id="s50-aR-oUC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QaB-xU-oz5" secondAttribute="trailing" constant="20" id="sb9-D1-c1J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z6U-kF-ATJ" secondAttribute="trailing" constant="20" id="u64-Mf-cqf"/>
+                            <constraint firstItem="dBb-ND-gse" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yDW-pb-fqX"/>
+                            <constraint firstItem="Z6U-kF-ATJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yT2-0O-9us"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="abv" destination="TyC-tb-nvu" id="elS-Oz-K2N"/>
+                        <outlet property="beerDescription" destination="dBb-ND-gse" id="T11-dZ-BaC"/>
+                        <outlet property="beerName" destination="CRG-yz-6nG" id="dPv-ei-hWg"/>
+                        <outlet property="firstBrewed" destination="faZ-fM-trv" id="SY0-qL-Hkd"/>
+                        <outlet property="imageURL" destination="QaB-xU-oz5" id="Ct9-Ag-568"/>
+                        <outlet property="tagLine" destination="Z6U-kF-ATJ" id="oNt-gI-nVc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="139" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="highlighter" catalog="system" width="128" height="119"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
