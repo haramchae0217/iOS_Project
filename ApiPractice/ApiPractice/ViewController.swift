@@ -52,13 +52,59 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchBeer()
+    }
+        // thread
         
+        /*
+         GCD = Grand Central Dispatch
+         어떤 작업을 queue한다
+         queue : FIFO 선입선출
+         stack : LIFO 후입선출
+         
+         [Task] -> Queue[t1, t2, t3, ...] 알아서 처리해줌
+         
+         thread : main, background
+         main queue : 눈에 보이는 UI를 업데이트 해줌 다른 thread에선 할 수 없음
+         global queue : UI를 제외한 나머지 작업을 해줌(network 통신 등), 우선순위를 정해줄 수 있음.
+         custom queue : 직렬로 만들지 병렬로 만들지 결정. default는 직렬값.
+         심플한 구조의 queue는
+         
+         직렬 / 병렬
+         
+         q1, q2, q3
+         [t1, t2, t3, t4]
+         
+         직렬 : 일처리는 느리지만, 원하는 순서대로 일처리를 끝낼 수 있음.
+         q1 [t1, t2, t3, t4]
+         q2 []
+         q3 []
+         
+         병렬 : 일처리는 빠르지만, 일처리 끝나는 시점을 알 수 없음.
+         q1 [t1]
+         q2 [t2]
+         q3 [t3, t4]
+         
+         main : UI만 담당
+         global : 이미지 다운
+         
+         */
+    
+    func fetchBeer() {
         apiService{ beer, result in
-            print(beer?.name)
-            print(beer?.tagline)
-            print(beer?.first_brewed)
-            print(beer?.description)
-            print(beer?.abv)
+            guard let beer = beer else {
+                print(result)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.beerName.text = beer.name
+                self.tagLine.text = beer.tagline
+                self.firstBrewed.text = beer.first_brewed
+                self.beerDescription.text = beer.description
+                self.abv.text = "\(beer.abv)"
+                // 이미지 처리는 다음에~
+            }
         }
     }
     
@@ -136,6 +182,9 @@ class ViewController: UIViewController {
         }.resume() // 데이터 통신을 시작해! 안써주면 작동을 안함.
     }
     
+    @IBAction func refreshButtonClicked(_ sender: UIBarButtonItem) {
+        fetchBeer()
+    }
     
 }
 
@@ -143,17 +192,17 @@ class ViewController: UIViewController {
 // 인코딩 => 데이터를 만들고 인코드를 하면 Json형식으로 만들어줌
 // 디코딩 => Json형식을 디코드하면 데이터로 만들어줌
 
-protocol Eat { // 청사진 blue print = 설계도면 : 여기 안에있는 것들은 무조건 필수적으로 있어야 하는것들.
-    func drinkWater()
-    func getSpoon()
-}
-
-class Dinner: Eat { // : Eat 프로토콜은 준수했다.
-    func drinkWater() {
-        <#code#>
-    }
-    func getSpoon() {
-        <#code#>
-    }
-}
+//protocol Eat { // 청사진 blue print = 설계도면 : 여기 안에있는 것들은 무조건 필수적으로 있어야 하는것들.
+//    func drinkWater()
+//    func getSpoon()
+//}
+//
+//class Dinner: Eat { // : Eat 프로토콜은 준수했다.
+//    func drinkWater() {
+//        <#code#>
+//    }
+//    func getSpoon() {
+//        <#code#>
+//    }
+//}
 
