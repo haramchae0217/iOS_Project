@@ -77,6 +77,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Random Beer" id="MFZ-0n-NfX">
+                        <barButtonItem key="leftBarButtonItem" image="list.bullet" catalog="system" id="Wh8-Ek-yiX">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="beerListButtonClicked:" destination="BYZ-38-t0r" id="Uq7-1u-clc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="eJp-lG-SZI">
                             <color key="tintColor" systemColor="systemPinkColor"/>
                             <connections>
@@ -96,6 +102,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="93.75"/>
+        </scene>
+        <!--Beer View Controller-->
+        <scene sceneID="7zw-y2-Nos">
+            <objects>
+                <viewController storyboardIdentifier="beerListVC" id="SM6-Ca-rN4" customClass="BeerViewController" customModule="ApiPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XEo-eN-vHz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Kr-HC-Mp5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="beerListCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="127" id="a4R-4L-pnl" customClass="BeerTableViewCell" customModule="ApiPractice" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a4R-4L-pnl" id="ILl-Ws-3DV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ueB-tM-1FK">
+                                                    <rect key="frame" x="10" y="10" width="107" height="107"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ueB-tM-1FK" secondAttribute="height" multiplier="1:1" id="OT0-wD-hdT"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Or6-KA-sND">
+                                                    <rect key="frame" x="127" y="10" width="277" height="107"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoT-Zi-Esg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="277" height="24"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <color key="textColor" systemColor="systemPurpleColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjm-QD-hXa">
+                                                            <rect key="frame" x="0.0" y="34" width="277" height="73"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ueB-tM-1FK" firstAttribute="leading" secondItem="ILl-Ws-3DV" secondAttribute="leading" constant="10" id="979-Wb-B3u"/>
+                                                <constraint firstAttribute="bottom" secondItem="ueB-tM-1FK" secondAttribute="bottom" constant="10" id="Auq-jt-0nb"/>
+                                                <constraint firstAttribute="bottom" secondItem="Or6-KA-sND" secondAttribute="bottom" constant="10" id="CUE-fb-Zph"/>
+                                                <constraint firstItem="Or6-KA-sND" firstAttribute="leading" secondItem="ueB-tM-1FK" secondAttribute="trailing" constant="10" id="Dk0-bL-K5b"/>
+                                                <constraint firstItem="ueB-tM-1FK" firstAttribute="top" secondItem="ILl-Ws-3DV" secondAttribute="top" constant="10" id="LUc-YX-26M"/>
+                                                <constraint firstItem="Or6-KA-sND" firstAttribute="top" secondItem="ILl-Ws-3DV" secondAttribute="top" constant="10" id="gWM-Wh-JkL"/>
+                                                <constraint firstAttribute="trailing" secondItem="Or6-KA-sND" secondAttribute="trailing" constant="10" id="tdL-TH-oX9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="beerDescription" destination="tjm-QD-hXa" id="SOL-g1-nfb"/>
+                                            <outlet property="beerImage" destination="ueB-tM-1FK" id="4sM-k7-WS5"/>
+                                            <outlet property="beerName" destination="hoT-Zi-Esg" id="jpl-kU-Men"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f0u-u5-mLQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="f0u-u5-mLQ" firstAttribute="trailing" secondItem="3Kr-HC-Mp5" secondAttribute="trailing" id="7UL-6Y-xb1"/>
+                            <constraint firstItem="3Kr-HC-Mp5" firstAttribute="top" secondItem="f0u-u5-mLQ" secondAttribute="top" id="O2o-9j-U7b"/>
+                            <constraint firstItem="f0u-u5-mLQ" firstAttribute="bottom" secondItem="3Kr-HC-Mp5" secondAttribute="bottom" id="hjK-1f-aSb"/>
+                            <constraint firstItem="3Kr-HC-Mp5" firstAttribute="leading" secondItem="f0u-u5-mLQ" secondAttribute="leading" id="xE0-ZB-zQI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beerListTableView" destination="3Kr-HC-Mp5" id="GQ6-VG-zlT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luP-NZ-yhM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039.1304347826087" y="93.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kyk-wh-n8N">
@@ -118,11 +203,15 @@
     </scenes>
     <resources>
         <image name="highlighter" catalog="system" width="128" height="119"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
