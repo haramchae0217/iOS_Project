@@ -62,18 +62,24 @@ class ViewController: UIViewController {
                 return
             }
             
+            let imageURL: URL = URL(string: beer.image_url)!
+            let imageData = try! Data(contentsOf: imageURL)
+            
             DispatchQueue.main.async {
                 self.beerName.text = beer.name
                 self.tagLine.text = beer.tagline
                 self.firstBrewed.text = beer.first_brewed
                 self.beerDescription.text = beer.description
                 self.abv.text = "\(beer.abv)"
+                self.imageURL.image = UIImage(data: imageData)
+                
+                
                 // 이미지 처리는 다음에~
             }
         }
     }
     
-    func apiService(completion: @escaping (Beer?, String) -> Void) { // 세션이 연결되어있으면 json형식을 원하는 형식으로 파싱해온다
+    func apiService(completion: @escaping (RandomBeer?, String) -> Void) { // 세션이 연결되어있으면 json형식을 원하는 형식으로 파싱해온다
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let response = response as? HTTPURLResponse else { return }
             guard response.statusCode == 200 else {
@@ -86,7 +92,7 @@ class ViewController: UIViewController {
             
             do {
                 let decoder = JSONDecoder()
-                let beerInfo = try decoder.decode([Beer].self, from: data)
+                let beerInfo = try decoder.decode([RandomBeer].self, from: data)
                 // decode 모델의 타입과, 어디서 온 데이터인지
                 // 모델의 타입은 배열로 이루어져있음.
                 
