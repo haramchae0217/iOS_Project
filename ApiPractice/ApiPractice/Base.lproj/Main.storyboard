@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qgg-WK-B3L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1q6-V4-SZH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -101,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="93.75"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="93.75"/>
         </scene>
         <!--Translate View Controller-->
         <scene sceneID="cSH-ip-rjk">
@@ -112,14 +112,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="번역할 문장" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="77O-E7-SLj">
-                                <rect key="frame" x="20" y="64" width="374" height="300.5"/>
+                                <rect key="frame" x="20" y="108" width="374" height="254"/>
                                 <color key="backgroundColor" red="1" green="0.81928250189999996" blue="0.74721084510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiH-mr-veI">
-                                <rect key="frame" x="20" y="384.5" width="374" height="38"/>
+                                <rect key="frame" x="20" y="382" width="374" height="38"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -131,13 +131,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[한국어 -&gt; 영어]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-tv-IOs">
-                                <rect key="frame" x="20" y="442.5" width="374" height="21"/>
+                                <rect key="frame" x="20" y="440" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번역된 문장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7b-UU-jaN">
-                                <rect key="frame" x="20" y="483.5" width="374" height="40"/>
+                                <rect key="frame" x="20" y="481" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.50154617359999998" green="0.97251266179999996" blue="0.51535710960000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XMI-26-aD7"/>
@@ -165,6 +165,7 @@
                             <constraint firstItem="77O-E7-SLj" firstAttribute="top" secondItem="GXa-a4-FJx" secondAttribute="top" constant="20" id="sKy-wx-RsY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cIe-xc-0pF"/>
                     <connections>
                         <outlet property="originalTextView" destination="77O-E7-SLj" id="5QD-Li-Q2s"/>
                         <outlet property="translatedLabel" destination="A7b-UU-jaN" id="CeB-DL-F1B"/>
@@ -172,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tQ-V5-FRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="890"/>
+            <point key="canvasLocation" x="1048" y="870"/>
         </scene>
         <!--Beer View Controller-->
         <scene sceneID="7zw-y2-Nos">
@@ -263,12 +264,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luP-NZ-yhM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2039.1304347826087" y="93.75"/>
+            <point key="canvasLocation" x="2949.275362318841" y="93.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="Kyk-wh-n8N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qgg-WK-B3L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7uE-la-4h3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LEa-yc-3wN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -280,6 +282,43 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHC-I0-CCu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="93.75"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="a8g-iS-f7a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rr9-rp-f7q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ygA-41-bI0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7OR-lk-2Ib">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CiP-Qk-PLT" kind="relationship" relationship="rootViewController" id="6DJ-PX-YSF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0eM-79-SFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="870"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jsN-U1-8Zu">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1q6-V4-SZH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Ks-Dx-GjK">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Qgg-WK-B3L" kind="relationship" relationship="viewControllers" id="t0t-9b-FAD"/>
+                        <segue destination="Rr9-rp-f7q" kind="relationship" relationship="viewControllers" id="TfJ-SE-0Sw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTJ-te-tMM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </scene>
