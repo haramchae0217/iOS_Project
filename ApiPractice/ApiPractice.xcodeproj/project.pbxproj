@@ -15,6 +15,7 @@
 		8300AB63283E6FA1004F1061 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8300AB61283E6FA1004F1061 /* LaunchScreen.storyboard */; };
 		83214EEC284658E4009EA1A3 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83214EEB284658E4009EA1A3 /* BeerViewController.swift */; };
 		83214EEE284658F4009EA1A3 /* BeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83214EED284658F4009EA1A3 /* BeerTableViewCell.swift */; };
+		835C9F11284A586200BA249D /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835C9F10284A586200BA249D /* TranslateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8300AB64283E6FA1004F1061 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83214EEB284658E4009EA1A3 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
 		83214EED284658F4009EA1A3 /* BeerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTableViewCell.swift; sourceTree = "<group>"; };
+		835C9F10284A586200BA249D /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				8300AB56283E6F9F004F1061 /* AppDelegate.swift */,
 				8300AB58283E6F9F004F1061 /* SceneDelegate.swift */,
 				8300AB5C283E6F9F004F1061 /* Main.storyboard */,
+				835C9F10284A586200BA249D /* TranslateViewController.swift */,
 				8300AB5A283E6F9F004F1061 /* ViewController.swift */,
 				83214EEB284658E4009EA1A3 /* BeerViewController.swift */,
 				83214EED284658F4009EA1A3 /* BeerTableViewCell.swift */,
@@ -149,6 +152,7 @@
 				8300AB57283E6F9F004F1061 /* AppDelegate.swift in Sources */,
 				8300AB59283E6F9F004F1061 /* SceneDelegate.swift in Sources */,
 				83214EEE284658F4009EA1A3 /* BeerTableViewCell.swift in Sources */,
+				835C9F11284A586200BA249D /* TranslateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

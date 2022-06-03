@@ -103,6 +103,77 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="93.75"/>
         </scene>
+        <!--Translate View Controller-->
+        <scene sceneID="cSH-ip-rjk">
+            <objects>
+                <viewController id="CiP-Qk-PLT" customClass="TranslateViewController" customModule="ApiPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HXT-9M-a9t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="번역할 문장" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="77O-E7-SLj">
+                                <rect key="frame" x="20" y="64" width="374" height="300.5"/>
+                                <color key="backgroundColor" red="1" green="0.81928250189999996" blue="0.74721084510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiH-mr-veI">
+                                <rect key="frame" x="20" y="384.5" width="374" height="38"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="번역하기">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="translateButtonClicked:" destination="CiP-Qk-PLT" eventType="touchUpInside" id="uQn-7G-1pB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[한국어 -&gt; 영어]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-tv-IOs">
+                                <rect key="frame" x="20" y="442.5" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번역된 문장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7b-UU-jaN">
+                                <rect key="frame" x="20" y="483.5" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.50154617359999998" green="0.97251266179999996" blue="0.51535710960000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XMI-26-aD7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GXa-a4-FJx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GXa-a4-FJx" firstAttribute="trailing" secondItem="yiH-mr-veI" secondAttribute="trailing" constant="20" id="10T-zx-Krb"/>
+                            <constraint firstItem="A7b-UU-jaN" firstAttribute="top" secondItem="m6K-tv-IOs" secondAttribute="bottom" constant="20" id="50c-Np-7bC"/>
+                            <constraint firstItem="yiH-mr-veI" firstAttribute="leading" secondItem="GXa-a4-FJx" secondAttribute="leading" constant="20" id="6x7-TB-lv2"/>
+                            <constraint firstItem="77O-E7-SLj" firstAttribute="leading" secondItem="GXa-a4-FJx" secondAttribute="leading" constant="20" id="96z-TH-tHR"/>
+                            <constraint firstItem="m6K-tv-IOs" firstAttribute="leading" secondItem="GXa-a4-FJx" secondAttribute="leading" constant="20" id="Akf-Nk-kca"/>
+                            <constraint firstItem="m6K-tv-IOs" firstAttribute="centerY" secondItem="GXa-a4-FJx" secondAttribute="centerY" id="G1X-IP-Y1M"/>
+                            <constraint firstItem="GXa-a4-FJx" firstAttribute="trailing" secondItem="77O-E7-SLj" secondAttribute="trailing" constant="20" id="MBA-Tc-cVK"/>
+                            <constraint firstItem="GXa-a4-FJx" firstAttribute="trailing" secondItem="A7b-UU-jaN" secondAttribute="trailing" constant="20" id="Q0r-jU-3fl"/>
+                            <constraint firstItem="m6K-tv-IOs" firstAttribute="top" secondItem="yiH-mr-veI" secondAttribute="bottom" constant="20" id="QKm-ck-ZwF"/>
+                            <constraint firstItem="GXa-a4-FJx" firstAttribute="trailing" secondItem="m6K-tv-IOs" secondAttribute="trailing" constant="20" id="UNG-Oe-64Z"/>
+                            <constraint firstItem="yiH-mr-veI" firstAttribute="top" secondItem="77O-E7-SLj" secondAttribute="bottom" constant="20" id="hTs-Du-Bur"/>
+                            <constraint firstItem="A7b-UU-jaN" firstAttribute="leading" secondItem="GXa-a4-FJx" secondAttribute="leading" constant="20" id="mAc-cQ-bEr"/>
+                            <constraint firstItem="77O-E7-SLj" firstAttribute="top" secondItem="GXa-a4-FJx" secondAttribute="top" constant="20" id="sKy-wx-RsY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="originalTextView" destination="77O-E7-SLj" id="5QD-Li-Q2s"/>
+                        <outlet property="translatedLabel" destination="A7b-UU-jaN" id="CeB-DL-F1B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tQ-V5-FRC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="890"/>
+        </scene>
         <!--Beer View Controller-->
         <scene sceneID="7zw-y2-Nos">
             <objects>
@@ -216,8 +287,14 @@
     <resources>
         <image name="highlighter" catalog="system" width="128" height="119"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
