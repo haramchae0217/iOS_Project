@@ -47,13 +47,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var beerDescription: UILabel!
     @IBOutlet weak var abv: UILabel!
     
-    
     let url: URL = URL(string: "https://api.punkapi.com/v2/beers/random")! // 랜덤한 맥주 정보를 받아오는 주소
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchBeer()
     }
+    
+    // completion의 사용한 이유 ->
+    // DispatchQueue를 사용한 이유 ->
+    // main.sync를 사용하지 않은 이유 -> 
     
     func fetchBeer() {
         apiService{ beer, result in
@@ -72,9 +75,6 @@ class ViewController: UIViewController {
                 self.beerDescription.text = beer.description
                 self.abv.text = "\(beer.abv)"
                 self.imageURL.image = UIImage(data: imageData)
-                
-                
-                // 이미지 처리는 다음에~
             }
         }
     }
@@ -111,8 +111,6 @@ class ViewController: UIViewController {
         guard let beerListVC = self.storyboard?.instantiateViewController(withIdentifier: "beerListVC") as? BeerViewController else { return }
         self.navigationController?.pushViewController(beerListVC, animated: true)
     }
-    
-    
 }
 
 // 내용 정리
@@ -168,7 +166,24 @@ class ViewController: UIViewController {
 // thread
 
 /*
- GCD = Grand Central Dispatch
+ GCD = Grand Central Dispatch - 비동기 / 동기적으로 네트워크를 처리 해주는일
+ DispatchQueue
+ - task를 정의하면 OS가 알아서 적절한 thread에 task를 뿌려줌
+ - 그걸 main에서 처리해줄것인지, background(global)에서 처리해줄것인지 선택하거나
+ - 직력로 처리할지, 병렬로 처리할지 선택한다.
+ 
+ - main은 대표적으로 ui갱신하는 일을 함
+ - main이 다른일을 하면 view를 그려주는 일을 멈추기 때문
+ - 그래서 ui도 업데이트하고 작업도 해야한다면
+ - main에 ui를 업데이트하는 일을 주고
+ - global에 나머지 일을 준다.
+ - main은 단 하나만 존재(하나의 큐 안에), 직렬로 이루어져 있음. 하나기때문에 병렬적인 처리가 불가능함.
+ - global은 main이 아닌 모든 작업을 처리해줄때 사용. 병렬적 처리가 가능함, 직렬처리도 물론 가능함.
+ - 직렬이 아닌 병렬로 보통 처리를 함.(끝나는 시점을 알 수 없음)
+ - 끝나는 시점에 끝났음을 알기위해 completion을 사용.
+ 
+ - thread와 process에 관련된 공부
+ 
  어떤 작업을 queue한다
  queue : FIFO 선입선출
  stack : LIFO 후입선출
@@ -186,7 +201,31 @@ class ViewController: UIViewController {
  q1, q2, q3
  [t1, t2, t3, t4]
  
- 직렬 : 일처리는 느리지만, 원하는 순서대로 일처리를 끝낼 수 있음.
+ 직렬 : 일처리는 느리지만, 원하는 순서대로 일처리를 끝낼 수 있음. 순서 보장
+ ex) 이미지 다운 이후 필터 처리 -> 직렬 처리 가능
+ but) 병렬 처리라면 이미지 다운 이전에 필터 처리가 먼저 일어날 가능성이 존재함.
+ ∴ 이런 순서를 잘 따져가며 직렬 병렬 선택
+ MARK: 결론 : cs 공부...!
+ print찍어가면서 스스로 순서찾아보기
+ 
+ QoS : Quality of Service
+ 5단계로 형성
+ 가운데가 default
+ 
+ main - async처리만 하기 sync처리 x
+ main의 task가 a,b,c,d가 있는데
+ a를 하던 도중 a하지말고 b를 해!
+ 라고 하면 이건 main스스로 멈추라고 하는것과 다를게 없음.
+ dead lock
+ main은 단 하나기 때문에 자기 자신한테 sync처리 불가
+ 강아지한테 밥 기다려 하는걸 자신한테 하고 밥먹길 기다리는것과 같음.
+ 
+ main한테 sync를 처리하는것은 자기 자신에게 일을 멈추는것도 하는것도 아니기 때문에 dead lock 발생
+ 
+ global은 여러개기 때문에 sync처리가 가능
+ 
+ 결국은 여러개의 작업을 최고의 효율을 내면서 작동하게 하기 위함.
+ 
  q1 [t1, t2, t3, t4]
  q2 []
  q3 []
