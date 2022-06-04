@@ -21,9 +21,10 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak var originalTextView: UITextView!
     @IBOutlet weak var translatedLabel: UILabel!
     
-    let url = "https://dapi.kakao.com/v2/translation/translate?src_lang=kr&target_lang=en&query="
+    let get = "https://dapi.kakao.com/v2/translation/translate?src_lang=kr&target_lang=en&query="
     let apiKey = "60bca9a912ff21d8f05cb72a1bd67d5d"
     var query = ""
+    var url: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class TranslateViewController: UIViewController {
     }
     
     func apiSet(completion: @escaping (Translate?, String) -> Void) {
-        URLSession.shared.dataTask(with: URL(string: url+apiKey+query)!) { data, response, error in
+        URLSession.shared.dataTask(with: url!) { data, response, error in
             guard let response = response as? HTTPURLResponse else {
                 return
             }
@@ -64,7 +65,10 @@ class TranslateViewController: UIViewController {
     @IBAction func translateButtonClicked(_ sender: UIButton) {
         query = ""
         query = originalTextView.text
+        url = URL(string: get+apiKey+query)!
+        print(url)
         print(query)
+        
         translateLanguage()
     }
     
