@@ -15,6 +15,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        APIService().searchBook(query: "귀신") { book, code in
+            print(book?.title, book?.contents)
+            print(code)
+        }
+        
         bookTableView.delegate = self
         bookTableView.dataSource = self
         
