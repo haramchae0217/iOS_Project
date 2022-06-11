@@ -15,6 +15,11 @@ import UIKit
  4. 검색실패하면 alert 처리하기
  도전 숙제
  5. 검색화면 결과 20개
+ 
+ // 다음 수업
+ - 라이브러리 api 사용하기
+ - 프로젝트 고도화
+ 
  */
 
 class ViewController: UIViewController {
