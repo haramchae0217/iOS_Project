@@ -10,7 +10,7 @@ import Foundation
 struct APIService {
     let baseUrl: String = "https://dapi.kakao.com/v3/search/book?"
 
-    func searchBook(query: String, completion: @escaping (Book?, Int) -> Void ) {
+    func searchBook(query: String, completion: @escaping (Document?, Int) -> Void) {
         
         // 파라미터 처리
         var urlComponents = URLComponents(string: baseUrl)
@@ -20,7 +20,7 @@ struct APIService {
         // 헤더 처리
         guard let urlComponents = urlComponents , let url = urlComponents.url else { return }
         var requestUrl = URLRequest(url: url)
-        requestUrl.addValue("KakaoAK ", forHTTPHeaderField: "Authorization")
+        requestUrl.addValue("KakaoAK 60bca9a912ff21d8f05cb72a1bd67d5d", forHTTPHeaderField: "Authorization")
         
         // 완성된 url을 바탕으로 통신 처리
         let session = URLSession(configuration: .default)
@@ -36,14 +36,15 @@ struct APIService {
             // 2. data를 우리가 원하는 모델 형식으로 파싱하기.(decode)
             do {
                 let decoder = JSONDecoder()
-                let bookInfo = try decoder.decode(Book.self, from: data)
+                let documents = try decoder.decode(Document.self, from: data)
                 // 3-1. try catch문을 통해 파싱이 잘 되었으면 데이터를 넘겨준다.(try)
-                completion(bookInfo, response.statusCode)
+                completion(documents, response.statusCode)
             } catch {
                 // 3-2. 아니면 에러를 잡아낸다.(catch)
                 completion(nil, response.statusCode)
             }
-        }.resume()
+        }
+        dataTask.resume()
     }
 }
 

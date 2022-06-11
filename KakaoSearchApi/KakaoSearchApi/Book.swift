@@ -11,3 +11,7 @@ struct Book: Decodable {
     let title: String
     let contents: String
 }
+
+struct Document: Decodable {
+    let documents: [Book]
+}
