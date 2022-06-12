@@ -27,11 +27,14 @@ class DetailBookViewController: UIViewController {
         for data in detailBook.authors {
             author += data
         }
+        
         DetailbookSet()
     }
     func DetailbookSet() {
         if let detailBook = detailBook {
-            bookImage.image = UIImage(named: detailBook.thumbnail)
+            let imageUrl: URL = URL(string: detailBook.thumbnail)!
+            let imageData = try! Data(contentsOf: imageUrl)
+            bookImage.image = UIImage(data: imageData)
             bookTitle.text = detailBook.title
             bookPublisher.text = detailBook.publisher
             bookAuthor.text = author
