@@ -91,43 +91,43 @@
         <!--Detail Book View Controller-->
         <scene sceneID="WVv-5Q-Op5">
             <objects>
-                <viewController id="5uu-6e-7QQ" customClass="DetailBookViewController" customModule="KakaoSearchApi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" id="5uu-6e-7QQ" customClass="DetailBookViewController" customModule="KakaoSearchApi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bmn-28-x6Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrS-4t-NBr">
-                                <rect key="frame" x="50" y="194" width="314" height="518"/>
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j7M-sY-njZ">
-                                        <rect key="frame" x="50" y="20" width="214" height="267.5"/>
+                                        <rect key="frame" x="50" y="20" width="274" height="342.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j7M-sY-njZ" secondAttribute="height" multiplier="1:1.25" id="LrN-h6-BUs"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uMs-Y0-hfY">
-                                        <rect key="frame" x="50" y="297.5" width="214" height="200.5"/>
+                                        <rect key="frame" x="50" y="372.5" width="274" height="385.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OgS-sh-dXs">
-                                                <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="274" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출판사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oII-VY-EiK">
-                                                <rect key="frame" x="0.0" y="30.5" width="214" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="274" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pk-uD-1Z7">
-                                                <rect key="frame" x="0.0" y="61" width="214" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="61" width="274" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="줄거리" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCB-eE-dyr">
-                                                <rect key="frame" x="0.0" y="91.5" width="214" height="109"/>
+                                                <rect key="frame" x="0.0" y="91.5" width="274" height="294"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -150,12 +150,19 @@
                         <viewLayoutGuide key="safeArea" id="zvB-DE-zEw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QrS-4t-NBr" firstAttribute="top" secondItem="zvB-DE-zEw" secondAttribute="top" constant="150" id="6Jg-IR-RbW"/>
-                            <constraint firstItem="QrS-4t-NBr" firstAttribute="leading" secondItem="zvB-DE-zEw" secondAttribute="leading" constant="50" id="K47-lW-L9n"/>
-                            <constraint firstItem="zvB-DE-zEw" firstAttribute="trailing" secondItem="QrS-4t-NBr" secondAttribute="trailing" constant="50" id="ibn-sr-whS"/>
-                            <constraint firstItem="zvB-DE-zEw" firstAttribute="bottom" secondItem="QrS-4t-NBr" secondAttribute="bottom" constant="150" id="u8x-qJ-vuF"/>
+                            <constraint firstItem="QrS-4t-NBr" firstAttribute="top" secondItem="zvB-DE-zEw" secondAttribute="top" constant="20" id="6Jg-IR-RbW"/>
+                            <constraint firstItem="QrS-4t-NBr" firstAttribute="leading" secondItem="zvB-DE-zEw" secondAttribute="leading" constant="20" id="K47-lW-L9n"/>
+                            <constraint firstItem="zvB-DE-zEw" firstAttribute="trailing" secondItem="QrS-4t-NBr" secondAttribute="trailing" constant="20" id="ibn-sr-whS"/>
+                            <constraint firstItem="zvB-DE-zEw" firstAttribute="bottom" secondItem="QrS-4t-NBr" secondAttribute="bottom" constant="20" id="u8x-qJ-vuF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bookAuthor" destination="8pk-uD-1Z7" id="pZn-GS-FE7"/>
+                        <outlet property="bookContent" destination="jCB-eE-dyr" id="GNs-1B-Eyu"/>
+                        <outlet property="bookImage" destination="j7M-sY-njZ" id="jJJ-bv-ohs"/>
+                        <outlet property="bookPublisher" destination="oII-VY-EiK" id="h4n-bD-O6Z"/>
+                        <outlet property="bookTitle" destination="OgS-sh-dXs" id="aga-Zg-hWV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCk-Uq-UPM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
