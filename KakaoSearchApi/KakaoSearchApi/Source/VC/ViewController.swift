@@ -94,6 +94,10 @@ extension ViewController: UITableViewDelegate {
         return 120
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
+    
 }
 
 extension ViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {

@@ -16,6 +16,7 @@
 		8304F4FF2854C68A004DF9A9 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304F4FE2854C68A004DF9A9 /* BookTableViewCell.swift */; };
 		8304F5012854C932004DF9A9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304F5002854C932004DF9A9 /* APIService.swift */; };
 		8304F5032854CA46004DF9A9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304F5022854CA46004DF9A9 /* Book.swift */; };
+		839B21D0285659E500331A92 /* DetailBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B21CF285659E500331A92 /* DetailBookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8304F4FE2854C68A004DF9A9 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		8304F5002854C932004DF9A9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8304F5022854CA46004DF9A9 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		839B21CF285659E500331A92 /* DetailBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +64,67 @@
 		8304F4E92854C3F2004DF9A9 /* KakaoSearchApi */ = {
 			isa = PBXGroup;
 			children = (
-				8304F4EA2854C3F2004DF9A9 /* AppDelegate.swift */,
-				8304F4EC2854C3F2004DF9A9 /* SceneDelegate.swift */,
-				8304F4EE2854C3F2004DF9A9 /* ViewController.swift */,
-				8304F5002854C932004DF9A9 /* APIService.swift */,
-				8304F5022854CA46004DF9A9 /* Book.swift */,
-				8304F4F02854C3F2004DF9A9 /* Main.storyboard */,
-				8304F4FE2854C68A004DF9A9 /* BookTableViewCell.swift */,
-				8304F4F32854C3F4004DF9A9 /* Assets.xcassets */,
-				8304F4F52854C3F4004DF9A9 /* LaunchScreen.storyboard */,
+				839B21D228565A0300331A92 /* Source */,
+				839B21D1285659F200331A92 /* Resource */,
 				8304F4F82854C3F4004DF9A9 /* Info.plist */,
 			);
 			path = KakaoSearchApi;
+			sourceTree = "<group>";
+		};
+		839B21D1285659F200331A92 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				8304F4F02854C3F2004DF9A9 /* Main.storyboard */,
+				8304F4F32854C3F4004DF9A9 /* Assets.xcassets */,
+				8304F4F52854C3F4004DF9A9 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		839B21D228565A0300331A92 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				839B21D628565AC100331A92 /* VC */,
+				839B21D528565ABC00331A92 /* Cell */,
+				839B21D428565A4600331A92 /* Func */,
+				839B21D328565A1100331A92 /* Model */,
+				8304F4EA2854C3F2004DF9A9 /* AppDelegate.swift */,
+				8304F4EC2854C3F2004DF9A9 /* SceneDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		839B21D328565A1100331A92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8304F5022854CA46004DF9A9 /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		839B21D428565A4600331A92 /* Func */ = {
+			isa = PBXGroup;
+			children = (
+				8304F5002854C932004DF9A9 /* APIService.swift */,
+			);
+			path = Func;
+			sourceTree = "<group>";
+		};
+		839B21D528565ABC00331A92 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8304F4FE2854C68A004DF9A9 /* BookTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		839B21D628565AC100331A92 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				8304F4EE2854C3F2004DF9A9 /* ViewController.swift */,
+				839B21CF285659E500331A92 /* DetailBookViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +203,7 @@
 				8304F5032854CA46004DF9A9 /* Book.swift in Sources */,
 				8304F4EF2854C3F2004DF9A9 /* ViewController.swift in Sources */,
 				8304F4EB2854C3F2004DF9A9 /* AppDelegate.swift in Sources */,
+				839B21D0285659E500331A92 /* DetailBookViewController.swift in Sources */,
 				8304F4ED2854C3F2004DF9A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
