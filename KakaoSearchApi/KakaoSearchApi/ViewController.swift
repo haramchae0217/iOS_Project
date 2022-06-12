@@ -10,7 +10,7 @@ import UIKit
 /*
  숙제
  1. 이미지 o
- 2. 검색했을 때 검색어에 따른 결과 테이블뷰 출력
+ 2. 검색했을 때 검색어에 따른 결과 테이블뷰 출력 o
  3. 셀을 누르면 상세 뷰가 나오고, 상세뷰에는 썸네일(thumbnail) 제목(title), 출판사(publisher), 작가(author), 줄거리(content)를 보여줄 것.
  4. 검색실패하면 alert 처리하기
  도전 숙제
@@ -24,10 +24,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var bookTableView: UITableView!
     
-    var filteredBook: [Book] = []
     var bookList: [Book] = [] {
         didSet { // 값이 변경된다면 작동
             DispatchQueue.main.async {
@@ -39,11 +37,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bookTableViewSet()
+        searchBarSet()
+    }
+    
+    func bookTableViewSet() {
         bookTableView.delegate = self
         bookTableView.dataSource = self
-        
-        searchBar.delegate = self
-        searchBar.placeholder = "책을 제목을 입력하세요."
+    }
+    
+    func searchBarSet() {
+        let bookSearchBar = UISearchController(searchResultsController: nil)
+        bookSearchBar.searchResultsUpdater = self
+        bookSearchBar.searchBar.delegate = self
+        bookSearchBar.searchBar.placeholder = "책 제목을 입력하세요."
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = bookSearchBar
     }
     
     func apiService(query: String) {
@@ -90,15 +99,17 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         if let bookTitle = searchController.searchBar.text {
-            apiService(query: bookTitle)
+            print("검색어 : ",bookTitle)
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        let bookTitle = searchBar.text!
+        apiService(query: bookTitle)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         bookList = []
+        
     }
 }

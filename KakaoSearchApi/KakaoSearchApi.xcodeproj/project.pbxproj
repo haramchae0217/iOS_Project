@@ -16,7 +16,6 @@
 		8304F4FF2854C68A004DF9A9 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304F4FE2854C68A004DF9A9 /* BookTableViewCell.swift */; };
 		8304F5012854C932004DF9A9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304F5002854C932004DF9A9 /* APIService.swift */; };
 		8304F5032854CA46004DF9A9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8304F5022854CA46004DF9A9 /* Book.swift */; };
-		839B21CE2855F89B00331A92 /* MyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839B21CD2855F89B00331A92 /* MyDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		8304F4FE2854C68A004DF9A9 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		8304F5002854C932004DF9A9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8304F5022854CA46004DF9A9 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		839B21CD2855F89B00331A92 /* MyDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 				8304F4EE2854C3F2004DF9A9 /* ViewController.swift */,
 				8304F5002854C932004DF9A9 /* APIService.swift */,
 				8304F5022854CA46004DF9A9 /* Book.swift */,
-				839B21CD2855F89B00331A92 /* MyDB.swift */,
 				8304F4F02854C3F2004DF9A9 /* Main.storyboard */,
 				8304F4FE2854C68A004DF9A9 /* BookTableViewCell.swift */,
 				8304F4F32854C3F4004DF9A9 /* Assets.xcassets */,
@@ -150,7 +147,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				839B21CE2855F89B00331A92 /* MyDB.swift in Sources */,
 				8304F4FF2854C68A004DF9A9 /* BookTableViewCell.swift in Sources */,
 				8304F5012854C932004DF9A9 /* APIService.swift in Sources */,
 				8304F5032854CA46004DF9A9 /* Book.swift in Sources */,
