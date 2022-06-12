@@ -8,7 +8,10 @@
 import Foundation
 
 struct Book: Decodable {
+    let thumbnail: String
     let title: String
+//    let publisher: String
+//    let author: String
     let contents: String
 }
 
