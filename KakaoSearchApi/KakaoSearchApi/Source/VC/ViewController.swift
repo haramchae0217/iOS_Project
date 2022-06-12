@@ -95,7 +95,10 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailBookViewController else { return }
+        let detailBook = bookList[indexPath.row]
+        detailVC.detailBook = detailBook
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }
