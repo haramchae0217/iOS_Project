@@ -14,7 +14,7 @@ import UIKit
  3. 셀을 누르면 상세 뷰가 나오고, 상세뷰에는 썸네일(thumbnail) 제목(title), 출판사(publisher), 작가(author), 줄거리(content)를 보여줄 것. o
  4. 검색실패하면 alert 처리하기
  도전 숙제
- 5. 검색화면 결과 20개
+ 5. 검색화면 결과 20개 o
  
  // 다음 수업
  - 라이브러리 api 사용하기
@@ -56,12 +56,13 @@ class ViewController: UIViewController {
     }
     
     func apiService(query: String) {
-        APIService().searchBook(query: query) { document, code in
+        APIService().searchBook(query: query, size: "20") { document, code in
             if code == 200 {
                 guard let document = document else { return }
                 self.bookList = document.documents
             } else {
-                print("검색 실패",code) // alert 처리
+                print("검색 실패",code)
+                
             }
         }
     }

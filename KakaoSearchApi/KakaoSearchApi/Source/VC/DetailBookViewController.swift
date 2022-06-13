@@ -21,7 +21,6 @@ class DetailBookViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         guard let detailBook = detailBook else { return }
 
         for data in detailBook.authors {

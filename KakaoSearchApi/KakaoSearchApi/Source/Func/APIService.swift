@@ -10,12 +10,13 @@ import Foundation
 struct APIService {
     let baseUrl: String = "https://dapi.kakao.com/v3/search/book?"
 
-    func searchBook(query: String, completion: @escaping (Document?, Int) -> Void) {
+    func searchBook(query: String, size: String, completion: @escaping (Document?, Int) -> Void) {
         
         // 파라미터 처리
         var urlComponents = URLComponents(string: baseUrl)
         let queryItems = URLQueryItem(name: "query", value: query)
-        urlComponents?.queryItems = [queryItems]
+        let querySize = URLQueryItem(name: "size", value: size)
+        urlComponents?.queryItems = [queryItems, querySize]
         
         // 헤더 처리
         guard let urlComponents = urlComponents , let url = urlComponents.url else { return }
