@@ -12,7 +12,7 @@ import UIKit
  1. 이미지 o
  2. 검색했을 때 검색어에 따른 결과 테이블뷰 출력 o
  3. 셀을 누르면 상세 뷰가 나오고, 상세뷰에는 썸네일(thumbnail) 제목(title), 출판사(publisher), 작가(author), 줄거리(content)를 보여줄 것. o
- 4. 검색실패하면 alert 처리하기
+ 4. 검색실패하면 alert 처리하기 o
  도전 숙제
  5. 검색화면 결과 20개 o
  
@@ -41,6 +41,13 @@ class ViewController: UIViewController {
         searchBarSet()
     }
     
+    func showAlert(code: Int, message: String) {
+        let alert = UIAlertController(title: "\(code)", message: message, preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "확인", style: .cancel)
+        alert.addAction(okayButton)
+        self.present(alert, animated: true)
+    }
+    
     func bookTableViewSet() {
         bookTableView.delegate = self
         bookTableView.dataSource = self
@@ -62,7 +69,7 @@ class ViewController: UIViewController {
                 self.bookList = document.documents
             } else {
                 print("검색 실패",code)
-                
+                self.showAlert(code: code, message: "검색실패")
             }
         }
     }
@@ -118,6 +125,5 @@ extension ViewController: UISearchControllerDelegate, UISearchResultsUpdating, U
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         bookList = []
-        
     }
 }
