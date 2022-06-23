@@ -29,6 +29,7 @@ class DetailBookViewController: UIViewController {
         
         DetailbookSet()
     }
+    
     func DetailbookSet() {
         if let detailBook = detailBook {
             let imageUrl: URL = URL(string: detailBook.thumbnail)!
