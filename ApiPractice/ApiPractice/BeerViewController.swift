@@ -62,9 +62,8 @@ class BeerViewController: UIViewController {
             // tcp / ip :
             // 클라이언트가 지정한 url에게 request를 하고 서버측에게 날아오는 response
             
-            guard let response = response as? HTTPURLResponse else {
+            guard let response = response as? HTTPURLResponse else { return }
                 // http url response를 캐스팅,, 이상한 값이 들어왔나 체크,,,
-                return }
             guard response.statusCode == 200 else {
                 completion(nil, "데이터 통신 실패 : \(response.statusCode)")
                 return
